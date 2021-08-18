@@ -1,0 +1,151 @@
+The preferred black bow of the heroic archer Pharis.
+	- :Hero
+	- :Archer
+
+Bow born from the soul of the Dark Sun Gwyndolin, Darkmoon deity who watches over the abandoned city of Gods, Anor Londo.
+	- (c)-[:OF]->(g)
+	- :Abandoned, :Deserted
+	
+Repeating crossbow cherished by the weapon craftsman Eidas.
+	- (w)-[:CRAFTED_BY]->(p)
+
+Large crossbow with long distance used by Carim snipers. Often used with sniper bolts.
+	- Snipers?
+
+Sword wielded only by servants of Gravelord Nito, the first of the dead. Crafted from the bones of the fallen.
+	- (c)-[:OF]->(g)
+
+Jagged blade wielded by New Londo ghosts. 
+	- Related to monster
+
+A curved sword born from the soul of Quelaag
+	- (c)-[:CRAFTED_FROM]->(s)
+
+who was transformed into a chaos demon.
+	- :CHAOS_DEMON
+	- (p)-[:MEMBER_OF]->(c)
+
+Created by Arstor, Earl of Carim. Requires great skill to wield, but evades shield defense to sneak in damage.
+	- (w)-[:CRAFTED_BY]->(p)
+
+This wide single-edged shortsword is the favorite of lowly thieves and bandits.
+	- :THIEF
+	- :BANDIT
+
+The Darkwraiths, incited by Kaathe
+
+Iron Golem, guardian of Sen's Fortress
+
+The Gods fused the power of the soul with the great bones of the dragons, forming an appropriate core for the giant golem.
+
+Demon weapon built from the stone archtrees. Used by lesser demons at North Undead Asylum.
+
+Created from an everlasting dragon tooth.
+
+Great hammer from the soul of executioner Smough, who guards the cathedral in the forsaken city of Anor Londo
+
+Armor of the dragonslayer Ornstein, who guards the cathedral in the forsaken city of Anor Londo.
+
+Carved from the bones of fellow demons.
+
+Gaping Dragon, a distant, deformed descendant of the everlasting dragons.
+
+This greatsword belonged to Lord Gwyn's Knight Artorias, who fell to the abyss.
+Swallowed by the Dark with its master, this sword is tainted by the abyss, and now its strength reflects its wielder's humanity.
+
+Greatsword of the black knights who wander Lordran. Used to face chaos demons.
+	- Enemies
+
+Greatsword born from the soul of Gwyn, Lord of Cinder. As bearer of the ultimate soul, Gwyn wielded the bolts of the sun, but before linking the fire, divided that power amongst his children, and set off with only this great sword as his companion.
+
+Sir Artorias hunted the Darkwraiths
+	- Enemies
+	
+Artorias joined a covenant with the creatures of the Abyss.
+
+Brass contains traces of lightning
+
+Even the Gods feared Priscilla's lifehunt ability, and in the hands of a mortal, its power will turn upon its wielder.
+
+Standard weapon for clerics.
+
+One of the more barbaric cleric weapons.
+
+Cross spear born from the soul of Ornstein, a Dragonslayer guarding Anor Londo cathedral
+
+The horns of the butterfly, a being created by Seath
+
+The silver knights of Anor Londo guard the city
+
+A rapier with intricate decorations. Chosen weapon of the infamous Undead Prince Ricard. Ricard's exploits are told in a monomyth.
+He was born into royalty, but wandered the lands in a fateful ill-conceived journey. He became Undead, and disappeared up North.
+	- :Royalty
+	- :Undead
+	
+Catalyst of the banishment sorcerers who flooded New Londo to seal off away the Darkwraiths and the Kings who fell to Dark.
+	- Enemies
+
+Dark Sun Gwyndolin, Darkmoon deity who watches over the abandoned city of Gods, 
+Gwyn's last born and a legitimate god, but he is also a Moon sorcerer, and this wand is boosted by faith, not intelligence.
+
+Quelana of Izalith, mother of pyromancy.
+
+The knights followed Lord Gwyn when he departed to link the flame
+	- Events
+
+The Sealers were once known as healers, and the bright crimson was a symbol of that.
+
+Robe of the sorcerers who flooded New Londo to seal away the Darkwraiths and the Four Kings who descended into Dark.
+	- Enemies
+
+Gauntlets of Lautrec the Embraced, representing the goddess Fina's love.
+	- Servant of god
+
+Gauntlets of the Channelers, sorcerers that serve Seath the Scaleless. Even after the onset of Seath's madness,
+	- Event
+
+mage smiths who studied at Vinheim Dragon School.
+
+One of the three masks of the Pinwheel, the necromancer who stole the power of the Gravelord, and reigns over the Catacombs.
+
+guardians of the paintings in Anor Londo
+They have guarded the Great Painting of Ariamis for ages, passing their duty down through generations, but the reason for doing so passed from all memory long ago.
+
+Pharis was an accomplished archer, and though he was human, he ranked alongside Hawkeye Gough, one of the Four Knights of Lord Gwyn.
+
+The helm is believed to belong to an ancient royal line, but only Vamos would know for sure, and he shall never speak again.
+
+the Silver Knights who protect Anor Londo.
+
+She braved the Abyss but did not live to tell of her ordeal.
+
+Frightful occult shield. Defends against divine weapons and lightning.
+In an ill-fated plot to destroy the very gods, the followers of the occult once attempted to steal the power of Gravelord Nito, the first of the dead.
+
+The Silver Knights stayed behind in Anor Londo to defend the illusory goddess, and their shields are blessed with her divine protection.
+
+A pyromancy discovered from the Dark of the Abyss 
+
+Art of the Flame of Chaos, which engulfed the Witch of Izalith and her daughters. Sweep foes with chaos fire whip.
+This spell was wielded by the eldest of The Daughters of Chaos.
+
+Carmina, the most accomplished pupil of Salaman the Master Pyromancer, pioneered new directions for the art of pyromancy.
+
+Red feather arrows of the Lord's hunters.
+
+Soul of one of the Four Kings, who fell to the Dark. A fragment of a Lord Soul discovered at the dawn of the Age of Fire.
+Lord Gwyn recognized the foresight of these four great leaders of New Londo, and granted them their ranks and the fragments of a great soul. Although this is not a full Lord Soul, it can still satiate the Lordvessel.
+
+Seath allied with Lord Gwyn and turned upon the dragons; for this he was awarded Dukedom embraced by the royalty, and given a fragment of a great soul.
+
+Head carved of archtrees
+
+Alvina was a trusted friend of Knight Artorias and the Great Wolf Sif.
+
+The Princess of Sunlight Gwynevere left Anor Londo along many other deities, and later became wife to Flame God Flann.
+
+Allfather Lloyd, uncle to Lord Gwyn
+
+Soul serving as the core of the Iron Golem, guardian of Sen's Fortress,
+
+Long ago, I accepted another pupil, like yourself. Over two-hundred years ago there was a man, almost as bungling as you... In your world he was called Salaman the Master Pyromancer. The little rascal really made something of himself.

@@ -1,0 +1,5 @@
+# Git folder #
+/.git/
+
+# Eclipse files #
+.project
