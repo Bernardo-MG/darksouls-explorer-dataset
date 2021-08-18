@@ -200,11 +200,11 @@ LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations_members.csv' AS ro
 FIELDTERMINATOR ';'
 WITH row WHERE row.name IS NOT NULL
 MATCH
-	(o),
-	(m)
+   (o),
+   (m)
 WHERE
-	o.name = row.organization
-	AND m.name = row.member
+   o.name = row.organization
+   AND m.name = row.member
 MERGE (m)-[:MEMBER_OF]->(o);
 
 // Organization leaders
@@ -212,11 +212,11 @@ LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations_leaders.csv' AS ro
 FIELDTERMINATOR ';'
 WITH row WHERE row.name IS NOT NULL
 MATCH
-	(o),
-	(m)
+   (o),
+   (m)
 WHERE
-	o.name = row.organization
-	AND m.name = row.member
+   o.name = row.organization
+   AND m.name = row.member
 MERGE (m)-[:LEADER_OF]->(o);
 
 // Covenants
@@ -233,7 +233,7 @@ SET n:Covenant;
 // ENEMIES
 // ****************************************************************************
 
-// Monsters
+// Enemies
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/enemies.csv' AS row
 FIELDTERMINATOR ';'
 WITH row WHERE row.name IS NOT NULL
@@ -243,6 +243,24 @@ MERGE (n:Enemy {name: row.name});
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/enemies.csv' AS row
 MATCH (c {name: row.name})
 SET c:Boss
+RETURN c;
+
+
+
+// ****************************************************************************
+// ACTORS
+// ****************************************************************************
+
+// People
+MATCH
+    (c:Person)
+SET c:Actor
+RETURN c;
+
+// Enemies
+MATCH
+    (c:Enemy)
+SET c:Actor
 RETURN c;
 
 
@@ -389,25 +407,25 @@ RETURN c;
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/mentions.csv' AS row
 WITH row
 MATCH
-	(n),
-	(m)
+   (n),
+   (m)
 WHERE
-	n.name = row.mentioner
-	AND m.name = row.mentioned
+   n.name = row.mentioner
+   AND m.name = row.mentioned
 MERGE
-	(n)-[:MENTIONS]->(m);
+   (n)-[:MENTIONS]->(m);
 
 // Generated mentions
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/mentions_generated.csv' AS row
 WITH row
 MATCH
-	(n),
-	(m)
+   (n),
+   (m)
 WHERE
-	n.name = row.mentioner
-	AND m.name = row.mentioned
+   n.name = row.mentioner
+   AND m.name = row.mentioned
 MERGE
-	(n)-[:MENTIONS]->(m);
+   (n)-[:MENTIONS]->(m);
 
 
 
@@ -418,13 +436,13 @@ MERGE
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/usages.csv' AS row
 WITH row
 MATCH
-	(n),
-	(m)
+   (n),
+   (m)
 WHERE
-	n.name = row.name
-	AND m.name = row.user
+   n.name = row.name
+   AND m.name = row.user
 MERGE
-	(m)-[:MAKES_USE]->(n);
+   (m)-[:MAKES_USE]->(n);
 
 
 
