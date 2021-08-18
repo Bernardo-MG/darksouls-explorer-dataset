@@ -2,6 +2,8 @@
 
 Data set for the [Darksouls Explorer Backend](https://github.com/Bernardo-MG/darksouls-explorer-dataset-backend).
 
+Most of the data was extracted with the [Dark Souls Wiki Scrapper](https://github.com/Bernardo-MG/darksouls-wiki-scrapper), from the [Dark Souls Wiki](https://darksouls.fandom.com/).
+
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
 
