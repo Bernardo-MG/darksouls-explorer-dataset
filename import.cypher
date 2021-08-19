@@ -189,6 +189,12 @@ FIELDTERMINATOR ';'
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Person {name: row.name});
 
+// Merchants
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/merchants.csv' AS row
+MATCH (m:Person {name: row.name})
+SET m:Merchant
+RETURN m;
+
 // Organizations
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations.csv' AS row
 FIELDTERMINATOR ';'
