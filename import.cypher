@@ -195,6 +195,12 @@ MATCH (m:Person {name: row.name})
 SET m:Merchant
 RETURN m;
 
+// Blacksmiths
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/blacksmiths.csv' AS row
+MATCH (b:Person {name: row.name})
+SET b:Blacksmith
+RETURN b;
+
 // Organizations
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations.csv' AS row
 FIELDTERMINATOR ';'
