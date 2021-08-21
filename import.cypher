@@ -319,21 +319,30 @@ WHERE
     AND a.name = row.aspect
 MERGE (p)-[:HAS_ASPECT]->(a);
 
+// Locations
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/actor_locations.csv' AS row
+MATCH
+    (p),
+    (l)
+WHERE
+    p.name = row.name
+    AND l.name = row.location
+MERGE (p)-[:LOCATED_IN]->(a);
+
+// Phantoms
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/panthoms.csv' AS row
+MATCH
+    (p:Person)
+WHERE
+    p.name = row.name
+SET p:Phantom
+RETURN p;
+
 
 
 // ****************************************************************************
 // OTHER RELATIONSHIPS
 // ****************************************************************************
-
-// Locations
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/actor_locations.csv' AS row
-MATCH
-    (p:Person),
-    (l:Location)
-WHERE
-    p.name = row.name
-    AND l.name = row.location
-MERGE (p)-[:IN]->(a);
 
 // Origins
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/origins.csv' AS row
