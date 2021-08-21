@@ -336,7 +336,7 @@ MERGE (p)-[:LOCATED_IN]->(a);
 // ****************************************************************************
 
 // White phantoms
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/white_panthoms.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/white_phantoms.csv' AS row
 MATCH
     (p:Person)
 WHERE
@@ -345,7 +345,7 @@ SET p:WhitePhantom
 RETURN p;
 
 // Red phantoms
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/red_panthoms.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/red_phantoms.csv' AS row
 MATCH
     (p:Person)
 WHERE
