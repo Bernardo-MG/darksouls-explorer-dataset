@@ -325,6 +325,16 @@ MERGE (p)-[:HAS_ASPECT]->(a);
 // OTHER RELATIONSHIPS
 // ****************************************************************************
 
+// Locations
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/actor_locations.csv' AS row
+MATCH
+    (p:Person),
+    (l:Location)
+WHERE
+    p.name = row.name
+    AND l.name = row.location
+MERGE (p)-[:IN]->(a);
+
 // Origins
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/origins.csv' AS row
 MATCH
