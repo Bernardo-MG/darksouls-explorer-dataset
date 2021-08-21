@@ -430,6 +430,25 @@ WHERE
     AND i.name = row.owned
 MERGE (o)-[:OWNS]->(i);
 
+// Adjacent locations
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/adjacent_locations.csv' AS row
+MATCH
+    (a),
+    (b)
+WHERE
+    a.name = row.location
+    AND b.name = row.adjacent
+MERGE (a)-[:ADJACENT]->(b);
+
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/adjacent_locations.csv' AS row
+MATCH
+    (a),
+    (b)
+WHERE
+    a.name = row.location
+    AND b.name = row.adjacent
+MERGE (b)-[:ADJACENT]->(a);
+
 // Drops
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/drops.csv' AS row
 MATCH
