@@ -329,14 +329,60 @@ WHERE
     AND l.name = row.location
 MERGE (p)-[:LOCATED_IN]->(a);
 
-// Phantoms
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/panthoms.csv' AS row
+
+
+// ****************************************************************************
+// PHANTOMS
+// ****************************************************************************
+
+// White phantoms
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/white_panthoms.csv' AS row
 MATCH
     (p:Person)
 WHERE
     p.name = row.name
+SET p:WhitePhantom
+RETURN p;
+
+// Red phantoms
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/red_panthoms.csv' AS row
+MATCH
+    (p:Person)
+WHERE
+    p.name = row.name
+SET p:RedPhantom
+RETURN p;
+
+// Phantoms
+MATCH
+    (p)
+WHERE
+    p:WhitePhantom
+    OR p:RedPhantom
 SET p:Phantom
 RETURN p;
+
+// Summons
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/summonables.csv' AS row
+MATCH
+    (p:Phantom),
+    (b:Boss)
+WHERE
+    p.name = row.name
+    AND b.name = row.boss
+SET p:Phantom
+MERGE (p)-[:SUMMONABLE_AT]->(b);
+
+// Invaders
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/invaders.csv' AS row
+MATCH
+    (p:Phantom),
+    (l:Location)
+WHERE
+    p.name = row.name
+    AND l.name = row.location
+SET p:Phantom
+MERGE (p)-[:INVADES_AT]->(l);
 
 
 
