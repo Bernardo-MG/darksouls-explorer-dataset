@@ -430,6 +430,16 @@ WHERE
     AND i.name = row.owned
 MERGE (o)-[:OWNS]->(i);
 
+// Drops
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/drops.csv' AS row
+MATCH
+    (o),
+    (i)
+WHERE
+    o.name = row.owner
+    AND i.name = row.owned
+MERGE (o)-[:OWNS]->(i);
+
 // Unique
 MATCH
     (i:Item)
