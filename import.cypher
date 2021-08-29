@@ -257,6 +257,16 @@ MATCH (c {name: row.name})
 SET c:Boss
 RETURN c;
 
+// Bosses locations
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/boss.csv' AS row
+MATCH
+    (p),
+    (l)
+WHERE
+    p.name = row.name
+    AND l.name = row.location
+MERGE (p)-[:BOSS_IN]->(l);
+
 
 
 // ****************************************************************************
