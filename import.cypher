@@ -327,7 +327,7 @@ MATCH
 WHERE
     p.name = row.name
     AND l.name = row.location
-MERGE (p)-[:LOCATED_IN]->(a);
+MERGE (p)-[:LOCATED_IN]->(l);
 
 
 
