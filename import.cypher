@@ -252,7 +252,7 @@ WITH row WHERE row.name IS NOT NULL
 MERGE (n:Enemy {name: row.name});
 
 // Bosses
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/enemies.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/boss.csv' AS row
 MATCH (c {name: row.name})
 SET c:Boss
 RETURN c;
