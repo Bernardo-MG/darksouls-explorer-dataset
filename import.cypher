@@ -155,9 +155,13 @@ MERGE
 // LOCATIONS
 // ****************************************************************************
 
-// Locations
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/locations.csv' AS row
-MERGE (n:Location {name: row.name});
+// Lands
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/lands.csv' AS row
+MERGE (n:Land {name: row.name});
+
+// Maps
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/maps.csv' AS row
+MERGE (n:Map {name: row.name});
 
 // Countries
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/countries.csv' AS row
@@ -168,8 +172,21 @@ SET n:Country;
 // Cities
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/cities.csv' AS row
 MATCH (n)
-WHERE n.name = row.location
+WHERE n.name = row.city
 SET n:City;
+
+// Landmarks
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/landmarks.csv' AS row
+MERGE (n:Landmark {name: row.name});
+
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/landmarks.csv' AS row
+MATCH
+    (p),
+    (l)
+WHERE
+    p.name = row.name
+    AND l.name = row.location
+MERGE (p)-[:LOCATED_IN]->(l);
 
 
 // ****************************************************************************
