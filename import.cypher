@@ -157,26 +157,19 @@ MERGE
 
 // Locations
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/locations.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MERGE (n:Location {name: row.name});
 
 // Countries
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/countries.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MATCH (n)
 WHERE n.name = row.location
 SET n:Country;
 
 // Cities
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/cities.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MATCH (n)
 WHERE n.name = row.location
 SET n:City;
-
 
 
 // ****************************************************************************
@@ -185,8 +178,6 @@ SET n:City;
 
 // People
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/people.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MERGE (n:Person {name: row.name});
 
 // Merchants
@@ -203,14 +194,10 @@ RETURN b;
 
 // Organizations
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MERGE (n:Organization {name: row.name});
 
 // Organization members
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations_members.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MATCH
    (o),
    (m)
@@ -221,8 +208,6 @@ MERGE (m)-[:MEMBER_OF]->(o);
 
 // Organization leaders
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/organizations_leaders.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MATCH
    (o),
    (m)
@@ -233,8 +218,6 @@ MERGE (m)-[:LEADER_OF]->(o);
 
 // Covenants
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenants.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MATCH (n)
 WHERE n.name = row.name
 SET n:Covenant;
@@ -247,8 +230,6 @@ SET n:Covenant;
 
 // Enemies
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/enemies.csv' AS row
-FIELDTERMINATOR ';'
-WITH row WHERE row.name IS NOT NULL
 MERGE (n:Enemy {name: row.name});
 
 // Bosses
@@ -404,7 +385,7 @@ MERGE (p)-[:INVADES_AT]->(l);
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/origins.csv' AS row
 MATCH
     (p),
-    (l:Location)
+    (l)
 WHERE
     p.name = row.name
     AND l.name = row.location
@@ -424,7 +405,7 @@ MERGE (p)-[:SOURCE]->(s);
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/creators.csv' AS row
 MATCH
     (i),
-    (p:Person)
+    (p)
 WHERE
     i.name = row.name
     AND p.name = row.creator
