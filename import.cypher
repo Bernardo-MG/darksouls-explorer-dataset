@@ -222,7 +222,6 @@ WHERE
     AND (b:Zone OR b:Door)
     AND a.name = row.name
     AND b.name = row.connection
-    AND row.direction = 'single'
 MERGE
     (a)-[:CONNECTS]->(b);
 
