@@ -218,11 +218,24 @@ MATCH
     (a),
     (b)
 WHERE
-    (a:Node OR a:Door)
-    AND (b:Node OR b:Door)
-    OR a.name = row.name
+    (a:Zone OR a:Door)
+    AND (b:Zone OR b:Door)
+    AND a.name = row.name
     AND b.name = row.connection
-    AND row.connection = 'single'
+    AND row.direction = 'single'
+MERGE
+    (a)-[:CONNECTS]->(b);
+
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/map_zone_connections.csv' AS row
+MATCH
+    (a),
+    (b)
+WHERE
+    (a:Zone OR a:Door)
+    AND (b:Zone OR b:Door)
+    AND a.name = row.name
+    AND b.name = row.connection
+    AND row.direction = 'both'
 MERGE
     (b)-[:CONNECTS]->(a);
 
