@@ -215,25 +215,16 @@ MERGE
 // Zone connections
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/map_zone_connections.csv' AS row
 MATCH
-    (a:Map),
-    (b:Map)
+    (a),
+    (b)
 WHERE
-    a.name = row.name
+    (a:Node OR a:Door)
+    AND (b:Node OR b:Door)
+    OR a.name = row.name
     AND b.name = row.connection
     AND row.connection = 'single'
 MERGE
     (b)-[:CONNECTS]->(a);
-
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/map_zone_connections.csv' AS row
-MATCH
-    (a:Map),
-    (b:Map)
-WHERE
-    a.name = row.name
-    AND b.name = row.connection
-    AND row.connection = 'both'
-MERGE
-    (a)-[:CONNECTS]->(b);
 
 // Adjacent maps
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/map_adjacents.csv' AS row
