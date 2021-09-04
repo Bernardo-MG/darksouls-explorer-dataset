@@ -1,0 +1,19 @@
+name,map,connection,direction
+Asylum Dungeon Cell,Asylum Dungeon Cell Door,both
+Asylum Dungeon Cell Door,Asylum Courtyard,both
+Asylum Courtyard,Asylum Demon,both
+Asylum Courtyard,Asylum Second Floor Door,both
+Asylum Second Floor,Asylum Second Floor Door,both
+Asylum Second Floor,Asylum Demon,both
+Asylum Second Floor,Asylum East Wing Door,both
+Asylum Third Floor,Asylum East Wing Door,both
+Asylum Third Floor,Asylum West Wing Door,both
+Asylum Third Floor,Asylum Demon,single
+Asylum West Wing,Asylum West Wing Door,both
+Asylum West Wing,Asylum Second Floor,single
+Asylum Demon,Asylum Demon Floor,single
+Asylum Demon,Pilgrim Door,both
+Asylum Demon Floor,Asylum Stray Demon,single
+Asylum Stray Demon,Asylum Courtyard,single
+Asylum Exit,Pilgrim Door,both
+Asylum Giant Crow,Pilgrim Door,both
