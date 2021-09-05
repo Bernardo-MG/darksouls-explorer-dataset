@@ -397,6 +397,16 @@ WHERE
     AND l.name = row.location
 MERGE (p)-[:LOCATED_IN]->(l);
 
+// Merchant items
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/merchant_items.csv' AS row
+MATCH
+    (p:Merchant),
+    (i)
+WHERE
+    p.name = row.merchant
+    AND i.name = row.item
+MERGE (p)-[:SELLS]->(l);
+
 
 
 // ****************************************************************************
