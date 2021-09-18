@@ -515,7 +515,7 @@ MATCH
     (i)
 WHERE
     o.name = row.owner
-    AND i.name = row.owned
+    AND i.name = row.item
 MERGE (o)-[:DROPS]->(i);
 
 // Unique
