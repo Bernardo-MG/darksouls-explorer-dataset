@@ -257,12 +257,6 @@ MERGE (b)-[:ADJACENT]->(a);
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/people.csv' AS row
 MERGE (n:Person {name: row.name});
 
-// Merchants
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/merchants.csv' AS row
-MATCH (m:Person {name: row.name})
-SET m:Merchant
-RETURN m;
-
 // Blacksmiths
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/blacksmiths.csv' AS row
 MATCH (b:Person {name: row.name})
@@ -328,24 +322,6 @@ MERGE (p)-[:BOSS_IN]->(l);
 
 
 // ****************************************************************************
-// ACTORS
-// ****************************************************************************
-
-// People
-MATCH
-    (c:Person)
-SET c:Actor
-RETURN c;
-
-// Enemies
-MATCH
-    (c:Enemy)
-SET c:Actor
-RETURN c;
-
-
-
-// ****************************************************************************
 // DIALOGS
 // ****************************************************************************
 
@@ -400,8 +376,8 @@ MERGE (p)-[:LOCATED_IN]->(l);
 // Merchant items
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/merchant_items.csv' AS row
 MATCH
-    (p:Merchant),
-    (i)
+    (p),
+    (i:Item)
 WHERE
     p.name = row.merchant
     AND i.name = row.item
