@@ -381,7 +381,7 @@ MATCH
 WHERE
     p.name = row.merchant
     AND i.name = row.item
-MERGE (p)-[:SELLS]->(l);
+MERGE (p)-[:SELLS]->(i);
 
 
 
