@@ -155,13 +155,6 @@ MERGE
 // ITEM INFO
 // ****************************************************************************
 
-// Starting gifts
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/starting_gifts.csv' AS row
-MATCH
-    (i:Item {name: row.item})
-MERGE
-    (s:StartingGift);
-
 // Exchanges
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/exchanges.csv' AS row
 MATCH
@@ -209,6 +202,36 @@ REMOVE
     e.trader
 RETURN
     e;
+
+
+
+// ****************************************************************************
+// STARTING CLASSES
+// ****************************************************************************
+
+// Starting classes
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/starting_classes.csv' AS row
+WITH row WHERE row.name IS NOT NULL
+MERGE
+    (c:StartingClass {name: row.name, description: row.description});
+
+// Starting class items
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/starting_class_items.csv' AS row
+MATCH
+    (c:StartingClass),
+    (i:Item)
+WHERE
+    c.name = row.class
+    AND i.name = row.item
+MERGE
+    (c)-[:STARTS_WITH]->(i);
+
+// Starting gifts
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/starting_gifts.csv' AS row
+MATCH
+    (i:Item {name: row.item})
+MERGE
+    (s:StartingGift);
 
 
 

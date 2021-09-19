@@ -1,0 +1,63 @@
+class,item
+Bandit,Battle Axe
+Bandit,Spider Shield
+Bandit,Brigand Hood
+Bandit,Brigand Armor
+Bandit,Brigand Gauntlets
+Bandit,Brigand Trousers
+Cleric,Mace
+Cleric,East-West Shield
+Cleric,Canvas Talisman
+Cleric,Holy Robe
+Cleric,Travelling Gloves
+Cleric,Holy Trousers
+Cleric,Heal
+Deprived,Club
+Deprived,Plank Shield
+Hunter,Shortsword
+Hunter,Short Bow
+Hunter,Standard Arrow
+Hunter,Large Leather Shield
+Hunter,Leather Armor
+Hunter,Leather Gloves
+Hunter,Leather Boots
+Knight,Broadsword
+Knight,Tower Kite Shield
+Knight,Knight Helm
+Knight,Knight Armor
+Knight,Knight Gauntlets
+Knight,Knight Leggings
+Pyromancer,Hand Axe
+Pyromancer,Cracked Round Shield
+Pyromancer,Pyromancy Flame
+Pyromancer,Tattered Cloth Hood
+Pyromancer,Tattered Cloth Robe
+Pyromancer,Tattered Cloth Manchette
+Pyromancer,Heavy Boots
+Pyromancer,Fireball
+Sorcerer,Dagger
+Sorcerer,Small Leather Shield
+Sorcerer,Sorcerer's Catalyst
+Sorcerer,Sorcerer Hat
+Sorcerer,Sorcerer Cloak
+Sorcerer,Sorcerer Gauntlets
+Sorcerer,Sorcerer Boots
+Sorcerer,Soul Arrow
+Thief,Bandit's Knife
+Thief,Target Shield
+Thief,Thief Mask
+Thief,Black Leather Armor
+Thief,Black Leather Gloves
+Thief,Black Leather Boots
+Wanderer,Scimitar
+Wanderer,Leather Shield
+Wanderer,Wanderer Hood
+Wanderer,Wanderer Coat
+Wanderer,Wanderer Manchette
+Wanderer,Wanderer Boots
+Warrior,Longsword
+Warrior,Heater Shield
+Warrior,Standard Helm
+Warrior,Hard Leather Armor
+Warrior,Hard Leather Gauntlets
+Warrior,Hard Leather Boots
