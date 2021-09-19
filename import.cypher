@@ -160,7 +160,7 @@ LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/starting_gifts.csv' AS row
 MATCH
     (i:Item {name: row.item})
 MERGE
-    (i:StartingGift);
+    (s:StartingGift);
 
 // Exchanges
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/exchanges.csv' AS row
@@ -381,7 +381,7 @@ MATCH
    (c:Covenant)-[:HAS]->(l:Level),
    (i:Item)
 WHERE
-   c.name = row.covenant,
+   c.name = row.covenant
    AND l.level = row.level
    AND i.name = row.reward
 MERGE (l)-[:REWARDS]->(i);
@@ -392,7 +392,7 @@ MATCH
    (c:Covenant),
    (i:Item)
 WHERE
-   c.name = row.covenant,
+   c.name = row.covenant
    AND i.name = row.drop
 MERGE (c)-[:DROPS_IN_COMBAT {chance: row.chance}]->(i);
 
