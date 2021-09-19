@@ -308,11 +308,26 @@ WHERE
    AND m.name = row.member
 MERGE (m)-[:LEADER_OF]->(o);
 
+
+
+// ****************************************************************************
+// COVENANTS
+// ****************************************************************************
+
 // Covenants
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenants.csv' AS row
-MATCH (n)
+MATCH
+   (n)
 WHERE n.name = row.name
 SET n:Covenant;
+
+// Covenant levels
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenant_levels.csv' AS row
+MATCH
+   (c:Covenant),
+   (i:Item)
+WHERE c.name = row.covenant
+MERGE (c)-[:LEVELS_UP_WITH]->(i);
 
 
 
