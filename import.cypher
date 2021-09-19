@@ -162,6 +162,14 @@ MATCH
 MERGE
     (i:StartingGift)
 
+// Crow exchanges
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/crow_exchanges.csv' AS row
+MATCH
+    (g:Item {name: row.give}),
+    (r:Item {name: row.receive}),
+MERGE
+    (g)-[:CROW_EXCHANGE]->(r)
+
 
 
 // ****************************************************************************
