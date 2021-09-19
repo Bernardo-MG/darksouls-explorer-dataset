@@ -364,10 +364,37 @@ SET n:Covenant;
 // Covenant levels
 LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenant_levels.csv' AS row
 MATCH
+   (c:Covenant)
+WHERE c.name = row.covenant
+MERGE (c)-[:HAS]->(l:Level {level: row.level, cost: row.number});
+
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenant_levels.csv' AS row
+MATCH
    (c:Covenant),
    (i:Item)
 WHERE c.name = row.covenant
 MERGE (c)-[:LEVELS_UP_WITH]->(i);
+
+// Covenant rewards
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenant_rewards.csv' AS row
+MATCH
+   (c:Covenant)-[:HAS]->(l:Level),
+   (i:Item)
+WHERE
+   c.name = row.covenant,
+   AND l.level = row.level
+   AND i.name = row.reward
+MERGE (l)-[:REWARDS]->(i);
+
+// Covenant combat loot
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/covenant_combat_loot.csv' AS row
+MATCH
+   (c:Covenant),
+   (i:Item)
+WHERE
+   c.name = row.covenant,
+   AND i.name = row.drop
+MERGE (c)-[:DROPS_IN_COMBAT {chance: row.chance}]->(i);
 
 
 
