@@ -160,15 +160,55 @@ LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/starting_gifts.csv' AS row
 MATCH
     (i:Item {name: row.item})
 MERGE
-    (i:StartingGift)
+    (i:StartingGift);
 
-// Crow exchanges
-LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/crow_exchanges.csv' AS row
+// Exchanges
+LOAD CSV WITH HEADERS FROM 'file:///darksouls_1/exchanges.csv' AS row
 MATCH
+    (t:Actor {name: row.trader}),
     (g:Item {name: row.give}),
-    (r:Item {name: row.receive}),
+    (r:Item {name: row.receive})
 MERGE
-    (g)-[:CROW_EXCHANGE]->(r)
+    (e:Exchange {receive:row.receive, give:row.give, trader:row.trader});
+
+MATCH
+    (e:Exchange),
+    (t:Actor)
+WHERE
+    t.name = e.trader
+MERGE
+    (e)-[:TRADER]->(t)
+RETURN
+    e;
+
+MATCH
+    (e:Exchange),
+    (g:Item)
+WHERE
+    g.name = e.give
+MERGE
+    (e)-[:GIVE]->(g)
+RETURN
+    e;
+
+MATCH
+    (e:Exchange),
+    (r:Item)
+WHERE
+    r.name = e.receive
+MERGE
+    (e)-[:RECEIVE]->(r)
+RETURN
+    e;
+
+MATCH
+    (e:Exchange)
+REMOVE
+    e.receive,
+    e.give,
+    e.trader
+RETURN
+    e;
 
 
 
