@@ -25,6 +25,8 @@ docker-compose -f docker/docker-compose.yml up
 
 Afterwards the database will be accessible locally for the user neo4j/secret.
 
+The Neo4j dashboard will be available at [http://localhost:7474/](http://localhost:7474/).
+
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
