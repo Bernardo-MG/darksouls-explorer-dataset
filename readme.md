@@ -8,6 +8,22 @@ Most of the data was extracted with the [Dark Souls Wiki Scrapper](https://githu
 
 - Cypher scripts to load into Neo4j
 
+## Usage
+
+Just copy all the files into Neo4j's import folder and run these scripts:
+
+- darksouls_1/import.cypher
+- darksouls_1/postprocess.cypher
+
+### Docker image
+
+Alternatively, a Docker compose file is included.
+
+```
+docker-compose -f docker/docker-compose.yml up
+```
+
+Afterwards the database will be accessible locally for the user neo4j/secret.
 
 ## Collaborate
 
