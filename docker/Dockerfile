@@ -4,5 +4,8 @@ FROM neo4j:latest
 WORKDIR /usr/src/import
 
 COPY /darksouls_1/import.cypher /darksouls_1/import.cypher
+COPY /darksouls_1/postprocess.cypher /darksouls_1/postprocess.cypher
 
-CMD cypher-shell -a bolt://db:7687 --format plain < /darksouls_1/import.cypher
+COPY /docker/load_data.sh /load_data.sh
+
+CMD sh /load_data.sh
