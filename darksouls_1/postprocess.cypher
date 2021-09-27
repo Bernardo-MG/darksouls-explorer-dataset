@@ -47,6 +47,8 @@ WHERE
 WITH
     [p, e] AS nodes,
     COUNT(*) AS count
+WHERE
+   count > 1
 CALL
    apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node
 RETURN
