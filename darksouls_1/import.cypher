@@ -230,7 +230,7 @@ MERGE
 LOAD CSV WITH HEADERS FROM 'file:///data/starting_gifts.csv' AS row
 MATCH
     (i:Item {name: row.item})
-MERGE
+SET
     (i:StartingGift);
 
 
