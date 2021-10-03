@@ -231,7 +231,7 @@ LOAD CSV WITH HEADERS FROM 'file:///data/starting_gifts.csv' AS row
 MATCH
     (i:Item {name: row.item})
 SET
-    (i:StartingGift);
+    i:StartingGift;
 
 
 
