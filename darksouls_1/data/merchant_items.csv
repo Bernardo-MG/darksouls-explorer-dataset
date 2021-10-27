@@ -1,0 +1,306 @@
+merchant,item,price
+Andre,Titanite Shard,800
+Andre,Crest of Artorias,20000
+Andre,Weapon Smithbox,2000
+Andre,Armor Smithbox,2000
+Andre,Repairbox,2000
+Andre,Longsword,1000
+Andre,Broadsword,1000
+Andre,Bastard Sword,3000
+Andre,Battle Axe,1000
+Andre,Warpick,800
+Andre,Caestus,200
+Andre,Pike,2000
+Andre,Large Leather Shield,800
+Andre,Tower Kite Shield,1000
+Andre,Caduceus Kite Shield,1000
+Andre,Standard Arrow,10
+Andre,Large Arrow,50
+Andre,Wooden Arrow,3
+Andre,Standard Bolt,30
+Andre,Heavy Bolt,100
+Andre,Wood Bolt,10
+Logan,Soul Arrow,1000
+Logan,Great Soul Arrow,6000
+Logan,Heavy Soul Arrow,2000
+Logan,Great Heavy Soul Arrow,8000
+Logan,Homing Soulmass,20000
+Logan,Soul Spear,40000
+Logan,Magic Shield,3000
+Logan,Magic Weapon,3000
+Logan,Crystal Soul Spear,50000
+Logan,Crystal Magic Weapon,20000
+Logan,Homing Crystal Soulmass,30000
+Crestfallen Merchant,Black Firebomb,500
+Crestfallen Merchant,Green Blossom,1000
+Crestfallen Merchant,Titanite Shard,1000
+Crestfallen Merchant,Large Titanite Shard,4000
+Crestfallen Merchant,Green Titanite Shard,5000
+Crestfallen Merchant,Greatsword,8000
+Crestfallen Merchant,Greataxe,8000
+Crestfallen Merchant,Balder Shield,4000
+Crestfallen Merchant,Tower Shield,8000
+Crestfallen Merchant,Standard Arrow,10
+Crestfallen Merchant,Large Arrow,50
+Crestfallen Merchant,Feather Arrow,100
+Crestfallen Merchant,Standard Bolt,30
+Crestfallen Merchant,Heavy Bolt,100
+Crestfallen Merchant,Sniper Bolt,250
+Crestfallen Merchant,Catarina Helm,10000
+Crestfallen Merchant,Catarina Armor,10000
+Crestfallen Merchant,Catarina Gauntlets,7000
+Crestfallen Merchant,Catarina Leggings,7000
+Crestfallen Merchant,Steel Helm,5000
+Crestfallen Merchant,Steel Armor,8000
+Crestfallen Merchant,Steel Gauntlets,5000
+Crestfallen Merchant,Steel Leggings,5000
+Crestfallen Merchant,Balder Helm,5000
+Crestfallen Merchant,Balder Armor,8000
+Crestfallen Merchant,Balder Gauntlets,5000
+Crestfallen Merchant,Balder Leggings,5000
+Crestfallen Merchant,Thunder Stoneplate Ring,15000
+Crestfallen Merchant,Spell Stoneplate Ring,15000
+Kaathe,Cracked Red Eye Orb,3000
+Domhnall,Gold Pine Resin,1000
+Domhnall,Master Key,5000
+Domhnall,Crystal Straight Sword,4000
+Domhnall,Crystal Greatsword,6000
+Domhnall,Crystal Shield,4000
+Domhnall,Helm of the Wise,12000
+Domhnall,Armor of the Glorious,15000
+Domhnall,Gauntlets of the Vanquisher,10000
+Domhnall,Boots of the Explorer,10000
+Domhnall,Golem Helm,5000
+Domhnall,Golem Armor,7000
+Domhnall,Golem Gauntlets,5000
+Domhnall,Golem Leggings,5000
+Domhnall,Ornstein's Helm,7000
+Domhnall,Ornstein's Armor,8000
+Domhnall,Ornstein's Gauntlets,6000
+Domhnall,Ornstein's Leggings,6000
+Domhnall,Smough's Helm,6000
+Domhnall,Smough's Armor,7000
+Domhnall,Smough's Gauntlets,5000
+Domhnall,Smough's Leggings,5000
+Domhnall,Crown of the Dark Sun,10000
+Domhnall,Moonlight Robe,10000
+Domhnall,Moonlight Gloves,10000
+Domhnall,Moonlight Waistcloth,10000
+Domhnall,Helm of Artorias,20000
+Domhnall,Armor of Artorias,20000
+Domhnall,Gauntlets of Artorias,20000
+Domhnall,Leggings of Artorias,20000
+Domhnall,Crown of the Great Lord,20000
+Domhnall,Robe of the Great Lord,20000
+Domhnall,Bracelet of the Great Lord,20000
+Domhnall,Anklet of the Great Lord,20000
+Dusk,Hidden Body,2000
+Dusk,Cast Light,1000
+Dusk,Repair,10000
+Dusk,Chameleon,3000
+Dusk,Hidden Weapon,2000
+Dusk,Oolacile Ivory Catalyst,1000
+Eingyi,Servant Roster,500
+Eingyi,Egg Vermifuge,1000
+Eingyi,Poison Mist,10000
+Eingyi,Toxic Mist,25000
+Elizabeth,Repair Powder,300
+Elizabeth,Gold Pine Resin,1000
+Elizabeth,Hidden Weapon,2000
+Elizabeth,Hidden Body,2000
+Elizabeth,Cast Light,1000
+Elizabeth,Repair,10000
+Elizabeth,Chameleon,3000
+Elizabeth,Oolacile Ivory Catalyst,1000
+Giant Blacksmith,Titanite Shard,800
+Giant Blacksmith,Large Titanite Shard,3800
+Giant Blacksmith,Green Titanite Shard,4800
+Giant Blacksmith,Twinkling Titanite,8000
+Giant Blacksmith,Giant's Halberd,5000
+Giant Blacksmith,Giant Shield,10000
+Giant Blacksmith,Moonlight Arrow,500
+Giant Blacksmith,Dragonslayer Arrow,500
+Giant Blacksmith,Standard Arrow,10
+Giant Blacksmith,Large Arrow,50
+Giant Blacksmith,Feather Arrow,100
+Giant Blacksmith,Lightning Bolt,700
+Giant Blacksmith,Standard Bolt,30
+Giant Blacksmith,Heavy Bolt,100
+Giant Blacksmith,Sniper Bolt,250
+Giant Blacksmith,Giant Helm,6000
+Giant Blacksmith,Giant Armor,8000
+Giant Blacksmith,Giant Gauntlets,6000
+Giant Blacksmith,Giant Leggings,6000
+Griggs,Soul Arrow,1000
+Griggs,Heavy Soul Arrow,2000
+Griggs,Great Soul Arrow,6000
+Griggs,Great Heavy Soul Arrow,8000
+Griggs,Fall Control,1500
+Griggs,Magic Weapon,3000
+Griggs,Aural Decoy,1000
+Griggs,Magic Shield,3000
+Griggs,Soul Spear,40000
+Griggs,Homing Soulmass,20000
+Griggs,Sorcerer's Catalyst,500
+Griggs,Bellowing Dragoncrest Ring,20,000
+Griggs,Lingering Dragoncrest Ring,20,000
+Gough,Dung Pie,200
+Gough,Homeward Bone,300
+Gough,Prism Stone,10
+Gough,Hello Carving,5
+Gough,Thank You Carving,5
+Gough,Titanite Shard,800
+Gough,Large Titanite Shard,3800
+Gough,Green Titanite Shard,4800
+Gough,Gough's Great Arrow,650
+Ingward,Transient Curse,1000
+Ingward,Resist Curse,5000
+Laurentius,Fire Orb,8000
+Laurentius,Combustion,500
+Laurentius,Iron Flesh,2000
+Laurentius,Flash Sweat,2000
+Laurentius,Fireball,800
+Chester,Green Blossom,1200
+Chester,Bloodred Moss Clump,400
+Chester,Purple Moss Clump,600
+Chester,Blooming Purple Moss Clump,1500
+Chester,Throwing Knife,30
+Chester,Firebomb,100
+Chester,Alluring Skull,800
+Chester,Lloyd's Talisman,800
+Chester,Black Firebomb,800
+Chester,Homeward Bone,600
+Chester,Humanity,10000
+Chester,Standard Arrow,20
+Chester,Large Arrow,100
+Chester,Feather Arrow,200
+Chester,Standard Bolt,50
+Chester,Heavy Bolt,150
+Chester,Sniper Bolt,400
+Oswald,Purging Stone,3000
+Oswald,Indictment,200
+Oswald,Book of the Guilty,1000
+Oswald,Homeward Bone,500
+Oswald,Karmic Justice,40000
+Oswald,Velka's Talisman,8000
+Oswald,Bloodbite Ring,10000
+Oswald,Poisonbite Ring,15000
+Oswald,Ring of Sacrifice,5000
+Patches,Eye of Death,3000
+Patches,Divine Blessing,2000
+Patches,Prism Stone,10
+Patches,Humanity,10000
+Patches,Twin Humanities,20000
+Patches,Heal,5000
+Patches,Great Heal Excerpt,10000
+Patches,Crescent Axe,10000
+Patches,Mace,3000
+Patches,Canvas Talisman,1000
+Patches,Thorolund Talisman,5000
+Patches,Cleric Helm,5000
+Patches,Cleric Armor,7000
+Patches,Cleric Gauntlets,5000
+Patches,Cleric Leggings,5000
+Patches,Mask of the Father,8000
+Patches,Mask of the Mother,8000
+Patches,Mask of the Child,8000
+Petrus,Heal,4000
+Petrus,Great Heal Excerpt,10000
+Petrus,Seek Guidance,2000
+Petrus,Force,4000
+Petrus,Homeward,8000
+Petrus,Talisman,1000
+Petrus,Thorolund Talisman,5000
+Quelana,Great Combustion,5000
+Quelana,Firestorm,30000
+Quelana,Fire Orb,8000
+Quelana,Great Fireball,20000
+Quelana,Fire Whip,10000
+Quelana,Combustion,500
+Quelana,Fireball,800
+Quelana,Undead Rapport,10000
+Reah,Divine Blessing,1000
+Reah,Force,1000
+Reah,Wrath of the Gods,10000
+Reah,Heal,1000
+Reah,Great Heal Excerpt,2000
+Reah,Great Heal,10000
+Reah,Homeward,1000
+Reah,Magic Barrier,6000
+Reah,Seek Guidance,500
+Reah,Talisman,200
+Rickert,Soul Arrow,2000
+Rickert,Heavy Soul Arrow,4000
+Rickert,Sorcerer's Catalyst,500
+Shiva,Flamberge,10000
+Shiva,Stone Greatsword,15000
+Shiva,Demon Great Machete,10000
+Shiva,Shotel,10000
+Shiva,Uchigatana,5000
+Shiva,Washing Pole,20000
+Shiva,Demon's Greataxe,10000
+Shiva,Claw,5000
+Shiva,Demon's Spear,15000
+Shiva,East Wood Grain Ring,10000
+Undead Female Merchant,Bloodred Moss Clump,300
+Undead Female Merchant,Purple Moss Clump,500
+Undead Female Merchant,Blooming Purple Moss Clump,1000
+Undead Female Merchant,Poison Throwing Knife,100
+Undead Female Merchant,Dung Pie,200
+Undead Female Merchant,Alluring Skull,500
+Undead Female Merchant,Charcoal Pine Resin,500
+Undead Female Merchant,Transient Curse,4000
+Undead Female Merchant,Rotten Pine Resin,1000
+Undead Female Merchant,Homeward Bone,500
+Undead Female Merchant,Prism Stone,10
+Undead Female Merchant,Humanity,5000
+Undead Female Merchant,Purging Stone,6000
+Undead Female Merchant,Fire Arrow,100
+Undead Female Merchant,Poison Arrow,100
+Undead Female Merchant,Standard Arrow,10
+Undead Female Merchant,Large Arrow,50
+Undead Female Merchant,Wooden Arrow,3
+Undead Female Merchant,Standard Bolt,30
+Undead Female Merchant,Heavy Bolt,100
+Undead Female Merchant,Wood Bolt,10
+Undead Male Merchant,Repair Powder,500
+Undead Male Merchant,Throwing Knife,10
+Undead Male Merchant,Firebomb,50
+Undead Male Merchant,Lloyd's Talisman,500
+Undead Male Merchant,Orange Guidance Soapstone,100
+Undead Male Merchant,Residence Key,1000
+Undead Male Merchant,Repairbox,3000
+Undead Male Merchant,Bottomless Box,1000
+Undead Male Merchant,Dagger,300
+Undead Male Merchant,Shortsword,600
+Undead Male Merchant,Scimitar,600
+Undead Male Merchant,Rapier,600
+Undead Male Merchant,Hand Axe,450
+Undead Male Merchant,Club,150
+Undead Male Merchant,Reinforced Club,350
+Undead Male Merchant,Spear,600
+Undead Male Merchant,Short Bow,1000
+Undead Male Merchant,East-West Shield,400
+Undead Male Merchant,Small Leather Shield,600
+Undead Male Merchant,Buckler,800
+Undead Male Merchant,Leather Shield,800
+Undead Male Merchant,Heater Shield,1000
+Undead Male Merchant,Warrior's Round Shield,800
+Undead Male Merchant,Standard Arrow,10
+Undead Male Merchant,Large Arrow,50
+Undead Male Merchant,Wooden Arrow,3
+Undead Male Merchant,Standard Bolt,30
+Undead Male Merchant,Heavy Bolt,100
+Undead Male Merchant,Wood Bolt,10
+Undead Male Merchant,Chain Helm,500
+Undead Male Merchant,Chain Armor,800
+Undead Male Merchant,Leather Gauntlets,500
+Undead Male Merchant,Chain Leggings,500
+Vamos,Homeward Bone,500
+Vamos,Titanite Shard,800
+Vamos,Standard Arrow,10
+Vamos,Large Arrow,50
+Vamos,Wooden Arrow,3
+Vamos,Standard Bolt,30
+Vamos,Heavy Bolt,100
+Vamos,Wood Bolt,10

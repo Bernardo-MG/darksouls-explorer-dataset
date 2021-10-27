@@ -1,0 +1,35 @@
+version: '3'
+services:
+    db:
+        image: neo4j:latest
+        container_name: darksouls-db
+        ports:
+            - "7687:7687"
+            - "7474:7474"
+            - "7473:7473"
+        volumes:
+            - ../darksouls_1/data:/var/lib/neo4j/import/data
+        environment: 
+            - NEO4J_AUTH=neo4j/secret
+            - NEO4J_dbms_memory_pagecache_size=1G
+            - NEO4J_dbms.memory.heap.initial_size=1G
+            - NEO4J_dbms_memory_heap_max__size=1G
+            - NEO4JLABS_PLUGINS=["apoc"]
+        healthcheck:
+            test: perl -MIO::Socket::INET -e 'exit(! defined( IO::Socket::INET->new("localhost:7687")))'
+            interval: 30s
+            timeout: 10s
+            retries: 5
+    db-seeder:
+        build:
+            context: ../
+            dockerfile: ./docker/Dockerfile
+        container_name: darksouls-db-seeder
+        depends_on:
+            db:
+                condition: service_healthy
+        links:
+            - "db"
+        environment: 
+            - NEO4J_USERNAME=neo4j
+            - NEO4J_PASSWORD=secret

@@ -4,16 +4,28 @@ Data set for the [Darksouls Explorer Backend](https://github.com/Bernardo-MG/dar
 
 Most of the data was extracted with the [Dark Souls Wiki Scrapper](https://github.com/Bernardo-MG/darksouls-wiki-scrapper), from the [Dark Souls Wiki](https://darksouls.fandom.com/).
 
-[![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
-[![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
-
-[![Release javadocs](https://img.shields.io/badge/javadocs-release-blue.svg)][javadoc-release]
-[![Development javadocs](https://img.shields.io/badge/javadocs-develop-blue.svg)][javadoc-develop]
-
 ## Features
 
 - Cypher scripts to load into Neo4j
 
+## Usage
+
+Just copy all the files into Neo4j's import folder and run these scripts:
+
+- darksouls_1/import.cypher
+- darksouls_1/postprocess.cypher
+
+### Docker image
+
+Alternatively, a Docker compose file is included.
+
+```
+docker-compose -f docker/docker-compose.yml up
+```
+
+Afterwards the database will be accessible locally for the user neo4j/secret.
+
+The Neo4j dashboard will be available at [http://localhost:7474/](http://localhost:7474/).
 
 ## Collaborate
 

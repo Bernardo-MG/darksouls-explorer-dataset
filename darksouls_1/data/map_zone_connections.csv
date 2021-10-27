@@ -1,0 +1,19 @@
+name,connection,map,direction
+Asylum Dungeon Cell,Asylum Dungeon Cell Door,Northern Undead Asylum,both
+Asylum Dungeon Cell Door,Asylum Courtyard,Northern Undead Asylum,both
+Asylum Courtyard,Asylum Demon,Northern Undead Asylum,both
+Asylum Courtyard,Asylum Second Floor Door,Northern Undead Asylum,both
+Asylum Second Floor,Asylum Second Floor Door,Northern Undead Asylum,both
+Asylum Second Floor,Asylum Demon,Northern Undead Asylum,both
+Asylum Second Floor,Asylum East Wing Door,Northern Undead Asylum,both
+Asylum Third Floor,Asylum East Wing Door,Northern Undead Asylum,both
+Asylum Third Floor,Asylum West Wing Door,Northern Undead Asylum,both
+Asylum Third Floor,Asylum Demon,Northern Undead Asylum,single
+Asylum West Wing,Asylum West Wing Door,Northern Undead Asylum,both
+Asylum West Wing,Asylum Second Floor,Northern Undead Asylum,single
+Asylum Demon,Asylum Demon Floor,Northern Undead Asylum,single
+Asylum Demon,Pilgrim Door,Northern Undead Asylum,both
+Asylum Demon Floor,Asylum Stray Demon,Northern Undead Asylum,single
+Asylum Stray Demon,Asylum Courtyard,Northern Undead Asylum,single
+Asylum Exit,Pilgrim Door,Northern Undead Asylum,both
+Asylum Giant Crow,Asylum Exit,Northern Undead Asylum,both
