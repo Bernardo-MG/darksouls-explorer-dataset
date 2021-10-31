@@ -227,12 +227,12 @@ MERGE
     (c)-[:STARTS_WITH]->(i);
 
 // Starting gifts
-MERGE
+CREATE
    (s {name: 'Starting gifts'});
 
 LOAD CSV WITH HEADERS FROM 'file:///data/starting_gifts.csv' AS row
 MATCH
-    (i:Item {name: row.item})
+    (i:Item {name: row.item}),
     (s {name: 'Starting gifts'})
 MERGE
     (i)-[:CHOSEN_FROM]->(s);
