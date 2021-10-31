@@ -228,7 +228,7 @@ MERGE
 
 // Starting gifts
 MERGE
-   (s {name: 'Starting gifts');
+   (s {name: 'Starting gifts'});
 
 LOAD CSV WITH HEADERS FROM 'file:///data/starting_gifts.csv' AS row
 MATCH
