@@ -393,7 +393,7 @@ LOAD CSV WITH HEADERS FROM 'file:///data/covenant_levels.csv' AS row
 MATCH
    (c:Covenant)
 WHERE c.name = row.covenant
-MERGE (c)-[:HAS]->(l:Level {level: row.level, cost: row.number});
+MERGE (c)-[:HAS]->(l:Level {name: row.level, level: row.level, cost: row.number});
 
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_levels.csv' AS row
 MATCH
