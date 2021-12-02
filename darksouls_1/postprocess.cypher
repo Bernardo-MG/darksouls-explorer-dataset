@@ -52,4 +52,20 @@ WHERE
 CALL
    apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node
 RETURN
-   nodes
+   nodes;
+
+// Merge people who are also bosses
+MATCH
+    (p:Person),
+    (e:Boss)
+WHERE
+    p.name = e.name
+WITH
+    [p, e] AS nodes,
+    COUNT(*) AS count
+WHERE
+   count > 1
+CALL
+   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node
+RETURN
+   nodes;

@@ -1,13 +1,25 @@
 owner,item
+Anastacia,Black Eye Orb
+Anastacia,Blood-Stained Skirt
+Anastacia,Dingy Gloves
+Anastacia,Dingy Hood
+Anastacia,Dingy Robe
+Andre,Blacksmith Hammer
+Andre,Crest of Artorias
+Andre,Humanity
 Artorias,Soul of Artorias
 Asylum Demon,Big Pilgrim's Key
 Asylum Demon,Demon's Great Hammer
 Asylum Demon,Humanity
 Baby Skeleton,Humanity
-Balder Knight,Balder Set
+Balder Knight,Balder Armor
+Balder Knight,Balder Gauntlets
+Balder Knight,Balder Helm
+Balder Knight,Balder Leggings
 Balder Knight,Balder Shield
 Balder Knight,Balder Side Sword
 Balder Knight,Large Titanite Shard
+Balder Knight,Light Crossbow
 Balder Knight,Rapier
 Balder Knight,Titanite Shard
 Banshee,Ghost Blade
@@ -24,10 +36,18 @@ Bell Gargoyles,Twin Humanities
 Berenike Knight,Greataxe
 Berenike Knight,Greatsword
 Berenike Knight,Large Titanite Shard
-Berenike Knight,Steel Set
+Berenike Knight,Steel Armor
+Berenike Knight,Steel Gauntlets
+Berenike Knight,Steel Helm
+Berenike Knight,Steel Leggings
 Berenike Knight,Tower Shield
 Black Dragon Kalameet,Calamity Ring
 Black Dragon Kalameet,Obsidian Greatsword
+Black Knight,Black Knight Greataxe
+Black Knight,Black Knight Greatsword
+Black Knight,Black Knight Halberd
+Black Knight,Black Knight Shield
+Black Knight,Black Knight Sword
 Bloathead Sorcerer,Bloated Sorcerer Head
 Bloathead Sorcerer,Green Titanite Shard
 Bloathead Sorcerer,Oolacile Catalyst
@@ -49,7 +69,10 @@ Capra Demon,Undead Burg
 Ceaseless Discharge,Homeward Bone
 Ceaseless Discharge,Humanity
 Centipede Demon,Orange Charred Ring
-Chained Prisoner,Chain Set
+Chained Prisoner,Chain Armor
+Chained Prisoner,Chain Helm
+Chained Prisoner,Chain Leggings
+Chained Prisoner,Leather Gauntlets
 Channeler,Channeler's Trident
 Chaos Bug,Red Titanite Chunk
 Chaos Bug,Red Titanite Chunk
@@ -62,9 +85,16 @@ Chaos Eater,White Titanite Chunk
 Chaos Witch Quelaag,Homeward Bone
 Chaos Witch Quelaag,Soul of Quelaag
 Chaos Witch Quelaag,Twin Humanities
+Ciaran,Dark Silver Tracer
+Ciaran,Gold Tracer
+Ciaran,Lord's Blade Gloves
+Ciaran,Lord's Blade Robe
+Ciaran,Lord's Blade Waistcloth
+Ciaran,Porcelain Mask
 Crow Demon,Souvenir of Reprisal
 Crystal Golem,Blue Titanite Chunk
 Crystal Lizard,Crystal Lizard
+Darkmoon Knightess,Fire Keeper Soul
 Darkwraith,Dark Hand
 Darkwraith,Titanite Chunk
 Darkwraith,Titanite Slab
@@ -74,8 +104,9 @@ Demonic Foliage,Bloodred Moss Clump
 Demonic Foliage,Blooming Purple Moss Clump
 Demonic Foliage,Purple Moss Clump
 Egg Burdened,Egg Vermifuge
+Eingyi,Egg Vermifuge
+Elizabeth,Elizabeth's Mushroom
 Engorged Hollow,Fire Surge
-Fang Boar,Fang Boar Helm
 Fang Boar,Fang Boar Helm
 Forest Hunter Archer,Black Bow of Pharis
 Forest Hunter Archer,Pharis's Hat
@@ -89,6 +120,7 @@ Gaping Dragon,Homeward Bone
 Gaping Dragon,Humanity
 Ghost,Jagged Ghost Blade
 Ghost,Transient Curse
+Giant Blacksmith,Blacksmith Giant Hammer
 Giant Clam,Purging Stone
 Giant Clam,Twinkling Titanite
 Giant Leech,Green Titanite Shard
@@ -97,12 +129,24 @@ Giant Skeleton,Longbow
 Giant Skeleton,Murakumo
 Giant Undead Rat,Humanity
 Giant,Titanite Chunk
+Gough,Gough's Armor
+Gough,Gough's Gauntlets
+Gough,Gough's Greatbow
+Gough,Gough's Helm
+Gough,Gough's Leggings
+Griggs,Humanity
+Griggs,Hush
+Griggs,Slumbering Dragoncrest Ring
 Guardian,Stone Greataxe
 Guardian,Twinkling Titanite
 Gwyn,"Soul of Gwyn, Lord of Cinder"
 Gwyndolin,Soul of Gwyndolin
 Hellkite Dragon,Drake Sword
-Hollow Soldier,Hollow Soldier
+Hollow Soldier,Hollow Soldier Armor
+Hollow Soldier,Hollow Soldier Helm
+Hollow Soldier,Hollow Soldier Shield
+Hollow Soldier,Hollow Soldier Waistcloth
+Hollow Soldier,Light Crossbow
 Hollow Thief,Bandit's Knife
 Hollow Thief,Hollow Thief's Hood
 Hollow Thief,Hollow Thief's Leather Armor
@@ -111,7 +155,9 @@ Hollow Thief,Target Shield
 Hollow Warrior,Battle Axe
 Hollow Warrior,Cracked Round Shield
 Hollow Warrior,Firebomb
-Hollow Warrior,Hollow Warrior Set
+Hollow Warrior,Hollow Warrior Armor
+Hollow Warrior,Hollow Warrior Helm
+Hollow Warrior,Hollow Warrior Waistcloth
 Hollow,Broken Straight Sword
 Hollow,Short Bow
 Humanity Phantom,Humanity
@@ -128,11 +174,26 @@ Infested Ghoul,Large Soul of a Lost Undead
 Infested Ghoul,Soul of a Lost Undead
 Infested Ghoul,Soul of a Nameless Soldier
 Infested Ghoul,Spear
+Ingward,Key to the Seal
 Iron Golem,Core of an Iron Golem
 Kirk,Barbed Straight Sword
 Kirk,Spiked Shield
+Lautrec,Fire Keeper Soul
+Lautrec,Humanity
+Lautrec,Ring of Favor and Protection
+Lautrec,Souvenir of Reprisal
+Leeroy,Grant
+Leeroy,Humanity
+Leeroy,Sanctus
+Logan,Big Hat
+Logan,Tin Crystallization Catalyst
+Logan,White Dragon Breath
 Manus,Humanity
 Manus,Soul of Manus
+Marvellous Chester,Chester's Gloves
+Marvellous Chester,Chester's Long Coat
+Marvellous Chester,Chester's Trousers
+Marvellous Chester,Snickering Top Hat
 Mimic,Crest Key
 Mimic,Crystal Halberd
 Mimic,Crystal Knight Shield
@@ -141,7 +202,6 @@ Mimic,Gold Coin
 Mimic,Lightning Spear
 Mimic,Occult Club
 Mimic,Silver Coin
-Mimic,Symbol of Avarice
 Mimic,Symbol of Avarice
 Mimic,Very Good! Carving
 Moonlight Butterfly,Blue Titanite Chunk
@@ -154,8 +214,19 @@ Necromancer,Skull Lantern
 Nito,Soul of Gravelord Nito
 Ornstein,Leo Ring
 Ornstein,Soul of Ornstein
+Oscar,Astora's Straight Sword
+Oscar,Big Pilgrim's Key
+Oscar,Crest Shield
+Oscar,Estus Flask
+Oscar,Undead Asylum F2 East Key
+Oswald,Book of the Guilty
+Oswald,Twin Humanities
 Painting Guardian,Painting Guardian Sword
 Painting Guardian,Throwing Knife
+Patches,Crescent Axe
+Patches,Humanity
+Petrus,Humanity
+Petrus,Ivory Talisman
 Phalanx,Large Leather Shield
 Phalanx,Spear
 Pinwheel Servant,Mask of the Child
@@ -172,17 +243,28 @@ Pisaca,Humanity
 Pisaca,Soothing Sunlight
 Priscilla,Priscilla's Dagger
 Priscilla,Soul of Priscilla
+Quelaag's Sister,Fire Keeper Soul
+Quelana,Fire Tempest
+Reah,Humanity
+Reah,Ivory Talisman
+Reah,Pendant
+Ricard,Ricard's Rapier
 Royal Sentinel,Giant Shield
 Royal Sentinel,Giant's Halberd
 Royal Sentinel,Titanite Chunk
 Sanctuary Guardian,Guardian Soul
 Sanctuary Guardian,Guardian Tail
-Seath the Scaleless,Bequeathed Lord Soul Shard
-Seath the Scaleless,Moonlight Greatsword
+Seath,Bequeathed Lord Soul Shard
+Seath,Moonlight Greatsword
 Sentinel,Giant Shield
 Sentinel,Giant's Halberd
 Serpent Mage,Flamberge
 Serpent Soldier,Man-serpent Greatsword
+Shiva's Bodyguard,Dark Wood Grain Ring
+Shiva,Iron Round Shield
+Shiva,Murakumo
+Siegmeyer,Humanity
+Siegmeyer,Speckled Stoneplate Ring
 Sif,Covenant of Artorias
 Sif,Homeward Bone
 Sif,Humanity
@@ -192,16 +274,22 @@ Silver Knight,Silver Knight Shield
 Silver Knight,Silver Knight Spear
 Silver Knight,Silver Knight Straight Sword
 Skeleton,Falchion
-Skeleton,Falchion
 Skeleton,Red & White Round Shield
-Skeleton,Red & White Round Shield
-Skeleton,Scimitar
 Skeleton,Scimitar
 Skeleton,Short Bow
 Slime,Green Titanite Shard
 Slime,Large Titanite Shard
 Smough,Soul of Smough
 Snow Rat,Humanity
+Solaire,Armor of the Sun
+Solaire,Humanity
+Solaire,Iron Bracelet
+Solaire,Iron Helm
+Solaire,Iron Leggings
+Solaire,Sunlight Shield
+Solaire,Sunlight Straight Sword
+Solaire,Sunlight Talisman
+Stone Dragon,Dragon Greatsword
 Stone Knight,Stone Greatshield
 Stone Knight,Stone Greatsword
 Stray Demon,Homeward Bone
@@ -217,7 +305,12 @@ Undead Crystal Soldier,Caduceus Kite Shield
 Undead Crystal Soldier,Crystal Straight Sword
 Undead Crystal Soldier,Longbow
 Undead Dragon,Dragon Scale
+Undead Male Merchant,Orange Guidance Soapstone
+Undead Male Merchant,Residence Key
+Undead Male Merchant,Uchigatana
 Undead Rat,Humanity
+Vamos,Hammer of Vamos
+Vamos,Royal Helm
 Wooden Scarecrow,Bloodred Moss Clump
 Wooden Scarecrow,Blooming Purple Moss Clump
 Wooden Scarecrow,Four-Pronged Plow

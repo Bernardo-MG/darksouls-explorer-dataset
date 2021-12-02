@@ -9,6 +9,71 @@ MERGE (n:Concept {name: row.name, description: COALESCE(row.description, '')});
 
 
 // ****************************************************************************
+// MAPS
+// ****************************************************************************
+
+// Maps
+LOAD CSV WITH HEADERS FROM 'file:///data/maps.csv' AS row
+MERGE (n:Map {name: row.name});
+
+// Zones
+LOAD CSV WITH HEADERS FROM 'file:///data/map_zones.csv' AS row
+MATCH
+    (m:Map)
+WHERE
+    m.name = row.map
+MERGE
+    (m)-[:COMPOSED_OF]->(n:Zone {name: row.name});
+
+// Doors
+LOAD CSV WITH HEADERS FROM 'file:///data/map_zone_doors.csv' AS row
+MATCH
+    (m:Map)
+WHERE
+    m.name = row.map
+MERGE
+    (m)-[:COMPOSED_OF]->(n:Door {name: row.name});
+
+// Zone connections
+LOAD CSV WITH HEADERS FROM 'file:///data/map_zone_connections.csv' AS row
+MATCH
+    (a),
+    (b)
+WHERE
+    (a:Zone OR a:Door)
+    AND (b:Zone OR b:Door)
+    AND a.name = row.name
+    AND b.name = row.connection
+MERGE
+    (a)-[:CONNECTS]->(b);
+
+LOAD CSV WITH HEADERS FROM 'file:///data/map_zone_connections.csv' AS row
+MATCH
+    (a),
+    (b)
+WHERE
+    (a:Zone OR a:Door)
+    AND (b:Zone OR b:Door)
+    AND a.name = row.name
+    AND b.name = row.connection
+    AND row.direction = 'both'
+MERGE
+    (b)-[:CONNECTS]->(a);
+
+// Adjacent maps
+LOAD CSV WITH HEADERS FROM 'file:///data/map_adjacents.csv' AS row
+MATCH
+    (a:Map),
+    (b:Map)
+WHERE
+    a.name = row.map
+    AND b.name = row.adjacent
+MERGE
+    (b)-[:ADJACENT]->(a);
+
+
+
+// ****************************************************************************
 // ITEMS
 // ****************************************************************************
 
@@ -203,6 +268,21 @@ REMOVE
 RETURN
     e;
 
+// Ascensions
+LOAD CSV WITH HEADERS FROM 'file:///data/ascensions.csv' AS row
+MATCH
+    (i:Item {name: row.item}),
+    (s:Item {name: row.source})
+MERGE
+    (s)-[:ASCENDS]->(i);
+
+// Loot
+LOAD CSV WITH HEADERS FROM 'file:///data/loots.csv' AS row
+MATCH
+    (i:Item {name: row.item}),
+    (m:Map {name: row.map})
+MERGE
+    (m)-[:LOOT]->(i);
 
 
 // ****************************************************************************
@@ -270,71 +350,8 @@ MATCH
 WHERE
     p.name = row.name
     AND l.name = row.location
-MERGE (p)-[:LOCATED_IN]->(l);
-
-
-
-// ****************************************************************************
-// MAPS
-// ****************************************************************************
-
-// Maps
-LOAD CSV WITH HEADERS FROM 'file:///data/maps.csv' AS row
-MERGE (n:Map {name: row.name});
-
-// Zones
-LOAD CSV WITH HEADERS FROM 'file:///data/map_zones.csv' AS row
-MATCH
-    (m:Map)
-WHERE
-    m.name = row.map
 MERGE
-    (m)-[:COMPOSED_OF]->(n:Zone {name: row.name});
-
-// Doors
-LOAD CSV WITH HEADERS FROM 'file:///data/map_zone_doors.csv' AS row
-MATCH
-    (m:Map)
-WHERE
-    m.name = row.map
-MERGE
-    (m)-[:COMPOSED_OF]->(n:Door {name: row.name});
-
-// Zone connections
-LOAD CSV WITH HEADERS FROM 'file:///data/map_zone_connections.csv' AS row
-MATCH
-    (a),
-    (b)
-WHERE
-    (a:Zone OR a:Door)
-    AND (b:Zone OR b:Door)
-    AND a.name = row.name
-    AND b.name = row.connection
-MERGE
-    (a)-[:CONNECTS]->(b);
-
-LOAD CSV WITH HEADERS FROM 'file:///data/map_zone_connections.csv' AS row
-MATCH
-    (a),
-    (b)
-WHERE
-    (a:Zone OR a:Door)
-    AND (b:Zone OR b:Door)
-    AND a.name = row.name
-    AND b.name = row.connection
-    AND row.direction = 'both'
-MERGE
-    (b)-[:CONNECTS]->(a);
-
-// Adjacent maps
-LOAD CSV WITH HEADERS FROM 'file:///data/map_adjacents.csv' AS row
-MATCH
-    (a:Map),
-    (b:Map)
-WHERE
-    a.name = row.map
-    AND b.name = row.adjacent
-MERGE (b)-[:ADJACENT]->(a);
+    (p)-[:LOCATED_IN]->(l);
 
 
 // ****************************************************************************
@@ -343,7 +360,8 @@ MERGE (b)-[:ADJACENT]->(a);
 
 // People
 LOAD CSV WITH HEADERS FROM 'file:///data/people.csv' AS row
-MERGE (n:Person {name: row.name});
+MERGE
+    (n:Person {name: row.name});
 
 // Blacksmiths
 LOAD CSV WITH HEADERS FROM 'file:///data/blacksmiths.csv' AS row
@@ -353,7 +371,8 @@ RETURN b;
 
 // Organizations
 LOAD CSV WITH HEADERS FROM 'file:///data/organizations.csv' AS row
-MERGE (n:Organization {name: row.name});
+MERGE
+    (n:Organization {name: row.name});
 
 // Organization members
 LOAD CSV WITH HEADERS FROM 'file:///data/organizations_members.csv' AS row
@@ -363,7 +382,8 @@ MATCH
 WHERE
    o.name = row.organization
    AND m.name = row.member
-MERGE (m)-[:MEMBER_OF]->(o);
+MERGE
+    (m)-[:MEMBER_OF]->(o);
 
 // Organization leaders
 LOAD CSV WITH HEADERS FROM 'file:///data/organizations_leaders.csv' AS row
@@ -373,7 +393,8 @@ MATCH
 WHERE
    o.name = row.organization
    AND m.name = row.member
-MERGE (m)-[:LEADER_OF]->(o);
+MERGE
+    (m)-[:LEADER_OF]->(o);
 
 
 
@@ -384,23 +405,31 @@ MERGE (m)-[:LEADER_OF]->(o);
 // Covenants
 LOAD CSV WITH HEADERS FROM 'file:///data/covenants.csv' AS row
 MATCH
-   (n)
-WHERE n.name = row.name
-SET n:Covenant;
+   (c:Organization)
+WHERE
+   c.name = row.name
+SET
+   c:Covenant
+RETURN c;
 
 // Covenant levels
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_levels.csv' AS row
 MATCH
    (c:Covenant)
-WHERE c.name = row.covenant
-MERGE (c)-[:HAS]->(l:Level {name: row.level, level: row.level, cost: row.number});
+WHERE
+   c.name = row.covenant
+MERGE
+    (c)-[:HAS]->(l:Level {name: row.level, level: row.level, cost: row.number});
 
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_levels.csv' AS row
 MATCH
    (c:Covenant),
    (i:Item)
-WHERE c.name = row.covenant
-MERGE (c)-[:LEVELS_UP_WITH]->(i);
+WHERE
+   c.name = row.covenant
+   AND i.name = row.item
+MERGE
+    (c)-[:LEVELS_UP_WITH]->(i);
 
 // Covenant rewards
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_rewards.csv' AS row
@@ -411,7 +440,8 @@ WHERE
    c.name = row.covenant
    AND l.level = row.level
    AND i.name = row.reward
-MERGE (l)-[:REWARDS]->(i);
+MERGE
+    (l)-[:REWARDS]->(i);
 
 // Covenant combat loot
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_combat_loot.csv' AS row
@@ -421,7 +451,8 @@ MATCH
 WHERE
    c.name = row.covenant
    AND i.name = row.drop
-MERGE (c)-[:DROPS_IN_COMBAT {chance: row.chance}]->(i);
+MERGE
+    (c)-[:DROPS_IN_COMBAT {chance: row.chance}]->(i);
 
 
 
