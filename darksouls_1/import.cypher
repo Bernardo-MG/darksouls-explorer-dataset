@@ -419,7 +419,7 @@ MATCH
 WHERE
    c.name = row.covenant
 MERGE
-    (c)-[:HAS]->(l:Level {name: row.level, level: row.level, cost: row.number});
+    (c)-[:HAS]->(l:Level {name: row.level, level: toInteger(row.level), cost: toInteger(row.number)});
 
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_levels.csv' AS row
 MATCH
@@ -438,7 +438,7 @@ MATCH
    (i:Item)
 WHERE
    c.name = row.covenant
-   AND l.level = row.level
+   AND l.level = toInteger(row.level)
    AND i.name = row.reward
 MERGE
     (l)-[:REWARDS]->(i);
@@ -542,7 +542,7 @@ MATCH
 WHERE
     p.name = row.merchant
     AND i.name = row.item
-MERGE (p)-[:SELLS {price: row.price}]->(i);
+MERGE (p)-[:SELLS {price: toFloat(row.price)}]->(i);
 
 
 
