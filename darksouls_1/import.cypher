@@ -69,6 +69,8 @@ WHERE
     a.name = row.map
     AND b.name = row.adjacent
 MERGE
+    (a)-[:ADJACENT]->(b)
+MERGE
     (b)-[:ADJACENT]->(a);
 
 
