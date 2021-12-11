@@ -2,3 +2,6 @@ Starting gifts which are given in a bulk.
 
 Greatsword of Artorias (cursed and normal), they have the same name
 Travelling Gloves, two with the same name
+
+Enemy subgroups. Undead soldiers with swords are not the same as the ones with spears, for example. Crystal lizard drops vary from place to place.
+Non-respawning enemies.

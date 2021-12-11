@@ -227,7 +227,7 @@ MATCH
     (g:Item {name: row.give}),
     (r:Item {name: row.receive})
 MERGE
-    (e:Exchange {receive:row.receive, give:row.give, trader:row.trader});
+    (e:Exchange {receive:row.receive, give:row.give, trader:row.trader, quantity:toInteger(row.quantity)});
 
 MATCH
     (e:Exchange),
@@ -452,7 +452,7 @@ WHERE
    c.name = row.covenant
    AND i.name = row.drop
 MERGE
-    (c)-[:DROPS_IN_COMBAT {chance: row.chance}]->(i);
+    (c)-[:DROPS_IN_COMBAT {chance: toFloat(row.chance)}]->(i);
 
 
 
