@@ -60,18 +60,16 @@ WHERE
 MERGE
     (b)-[:CONNECTS]->(a);
 
-// Adjacent maps
-LOAD CSV WITH HEADERS FROM 'file:///data/map_adjacents.csv' AS row
+// Map connections
+LOAD CSV WITH HEADERS FROM 'file:///data/map_connections.csv' AS row
 MATCH
     (a:Map),
     (b:Map)
 WHERE
     a.name = row.map
-    AND b.name = row.adjacent
+    AND b.name = row.connection
 MERGE
-    (a)-[:ADJACENT]->(b)
-MERGE
-    (b)-[:ADJACENT]->(a);
+    (a)-[:CONNECTS_TO]->(b);
 
 
 
