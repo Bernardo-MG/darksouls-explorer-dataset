@@ -6,5 +6,5 @@ Travelling Gloves, two with the same name
 Enemy subgroups. Undead soldiers with swords are not the same as the ones with spears, for example. Crystal lizard drops vary from place to place.
 Non-respawning enemies.
 
-Missing weapon enhacements (pines, and which weapons can receive them)
+Missing weapon enhacements (pines, spells... effect, and which weapons can receive them). May require nodes for each type of buff or status.
 Does it matter marking items which can be equipped?
