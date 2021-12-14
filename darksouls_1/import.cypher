@@ -77,72 +77,84 @@ MERGE
 // ITEMS
 // ****************************************************************************
 
-// Load ammunition
+// Ammunition
 LOAD CSV WITH HEADERS FROM 'file:///data/ammunition.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Ammunition {name: row.name, description: COALESCE(row.description, '')});
 
-// Load armors
+// Armors
 LOAD CSV WITH HEADERS FROM 'file:///data/armors.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Armor {name: row.name, description: COALESCE(row.description, '')});
 
-// Load catalysts
+// Catalysts
 LOAD CSV WITH HEADERS FROM 'file:///data/catalysts.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Catalyst {name: row.name, description: COALESCE(row.description, '')});
 
-// Load embers
+// Embers
 LOAD CSV WITH HEADERS FROM 'file:///data/embers.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Ember {name: row.name, description: COALESCE(row.description, '')});
 
-// Load key items
+// Key items
 LOAD CSV WITH HEADERS FROM 'file:///data/key_items.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:KeyItem {name: row.name, description: COALESCE(row.description, '')});
 
-// Load rings
+// Rings
 LOAD CSV WITH HEADERS FROM 'file:///data/rings.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Ring {name: row.name, description: COALESCE(row.description, '')});
 
-// Load shields
+// Shields
 LOAD CSV WITH HEADERS FROM 'file:///data/shields.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Shield {name: row.name, description: COALESCE(row.description, '')});
 
-// Load souls
+// Souls
 LOAD CSV WITH HEADERS FROM 'file:///data/souls.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Soul {name: row.name, description: COALESCE(row.description, '')});
 
-// Load spells
+// Spells
 LOAD CSV WITH HEADERS FROM 'file:///data/spells.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Spell {name: row.name, description: COALESCE(row.description, '')});
 
-// Load talismans
+// Talismans
 LOAD CSV WITH HEADERS FROM 'file:///data/talismans.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Talisman {name: row.name, description: COALESCE(row.description, '')});
 
-// Load upgrade materials
+// Upgrade materials
 LOAD CSV WITH HEADERS FROM 'file:///data/upgrade_materials.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:UpgradeMaterial {name: row.name, description: COALESCE(row.description, '')});
 
-// Load weapons
+// Weapons
 LOAD CSV WITH HEADERS FROM 'file:///data/weapons.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Weapon {name: row.name, description: COALESCE(row.description, '')});
 
-// Load miscelaneous items
+// Miscelaneous items
 LOAD CSV WITH HEADERS FROM 'file:///data/misc_items.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item {name: row.name, description: COALESCE(row.description, '')});
 
+// Healing items
+LOAD CSV WITH HEADERS FROM 'file:///data/healing_items.csv' AS row
+WITH row WHERE row.name IS NOT NULL
+MATCH (n)
+WHERE n.name = row.name
+MERGE (n:Healing);
 
+// Attack items
+LOAD CSV WITH HEADERS FROM 'file:///data/attack_items.csv' AS row
+WITH row WHERE row.name IS NOT NULL
+MATCH (n)
+WHERE n.name = row.name
+MERGE (n:Attack);
 
 // ****************************************************************************
 // ITEMS GROUPS
