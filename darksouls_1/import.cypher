@@ -171,14 +171,14 @@ WITH row WHERE row.name IS NOT NULL
 MERGE (n:MagicSchool {name: row.name});
 
 // Shield types
-LOAD CSV WITH HEADERS FROM 'file:///data/shield_types.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/shields.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:ShieldType {name: row.name});
 
 // Weapon types
-LOAD CSV WITH HEADERS FROM 'file:///data/weapon_types.csv' AS row
-WITH row WHERE row.name IS NOT NULL
-MERGE (n:WeaponType {name: row.name});
+LOAD CSV WITH HEADERS FROM 'file:///data/weapons.csv' AS row
+WITH row WHERE row.type IS NOT NULL
+MERGE (n:WeaponType {name: row.type});
 
 
 
@@ -197,7 +197,7 @@ MERGE
     (s)-[:CONTAINS]->(a);
 
 // Shield type relationships
-LOAD CSV WITH HEADERS FROM 'file:///data/weapons_weapon_types.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/weapons.csv' AS row
 MATCH
     (w:Weapon {name: row.weapon}),
     (t:WeaponType {name: row.type})
@@ -217,7 +217,7 @@ MERGE
     (m)-[:CONTAINS]->(s);
 
 // Weapon type relationships
-LOAD CSV WITH HEADERS FROM 'file:///data/shields_shield_types.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/shields.csv' AS row
 MATCH
     (s:Shield {name: row.weapon}),
     (t:ShieldType {name: row.type})

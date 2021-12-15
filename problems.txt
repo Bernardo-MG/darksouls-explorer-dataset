@@ -8,3 +8,5 @@ Non-respawning enemies.
 
 Missing weapon enhacements (pines, spells... effect, and which weapons can receive them). May require nodes for each type of buff or status.
 Does it matter marking items which can be equipped?
+
+Kind of damage dealt by weapon.
