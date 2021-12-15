@@ -161,12 +161,12 @@ MERGE (n:Attack);
 // ****************************************************************************
 
 // Armor sets
-LOAD CSV WITH HEADERS FROM 'file:///data/armor_sets.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/armors.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:ArmorSet {name: row.name});
 
 // Magic schools
-LOAD CSV WITH HEADERS FROM 'file:///data/magic_schools.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/spells.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:MagicSchool {name: row.name});
 
@@ -187,7 +187,7 @@ MERGE (n:WeaponType {name: row.type});
 // ****************************************************************************
 
 // Armor set relationships
-LOAD CSV WITH HEADERS FROM 'file:///data/armors_armor_sets.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/armors.csv' AS row
 MATCH
     (a:Armor {name: row.armor}),
     (s:ArmorSet {name: row.set})
@@ -207,7 +207,7 @@ MERGE
     (t)-[:CONTAINS]->(w);
 
 // Spell school relationships
-LOAD CSV WITH HEADERS FROM 'file:///data/spells_magic_schools.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/spells.csv' AS row
 MATCH
     (s:Spell {name: row.spell}),
     (m:MagicSchool {name: row.school})
