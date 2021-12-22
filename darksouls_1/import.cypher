@@ -239,8 +239,14 @@ MERGE
 
 // Weapon levels
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
+MATCH
+    (p:WeaponUpgradePath)
+WHERE
+    p.name = row.path
 MERGE
-    (l:WeaponLevel {name: row.weapon + ' ' + row.level, weapon: row.weapon, level: row.level});
+    (l:WeaponLevel {name: row.weapon + ' ' + row.level, weapon: row.weapon, level: row.level})
+MERGE
+    (p)-[:HAS]->(l);
 
 // Connect level progression
 MATCH
@@ -252,15 +258,6 @@ WHERE
     AND l2.level = l1.level + 1
 MERGE
     (l1)-[:NEXT]->(l2);
-
-// Connect level to upgrade path
-MATCH
-    (l:WeaponLevel),
-    (p:WeaponUpgradePath)
-WHERE
-    l.path = p.name
-MERGE
-    (p)-[:HAS]->(l);
 
 // Connect weapon to level
 MATCH
