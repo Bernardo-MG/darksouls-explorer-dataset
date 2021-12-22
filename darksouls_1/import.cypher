@@ -251,11 +251,12 @@ MERGE
 // Connect level progression
 MATCH
     (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l2:WeaponLevel),
+    (p:WeaponUpgradePath)-[:HAS]->(l1),
+    (p:WeaponUpgradePath)-[:HAS]->(l2)
 WHERE
     l1.weapon = l2.weapon
-    AND l1.path = l2.path
-    AND l2.level = l1.level + 1
+    AND toInteger(l2.level) = toInteger(l1.level) + 1
 MERGE
     (l1)-[:NEXT]->(l2);
 
@@ -282,7 +283,7 @@ MATCH
     (g:Item {name: row.give}),
     (r:Item {name: row.receive})
 MERGE
-    (e:Exchange {receive:row.receive, give:row.give, trader:row.trader, quantity:toInteger(row.quantity)});
+    (e:Exchange {receive:row.receive, give:row.give, trader:row.trader, quantity: toInteger(row.quantity)});
 
 MATCH
     (e:Exchange),
