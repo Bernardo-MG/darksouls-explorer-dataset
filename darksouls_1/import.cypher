@@ -196,7 +196,7 @@ MERGE
 MERGE
     (s)-[:CONTAINS]->(a);
 
-// Shield type relationships
+// Weapon type relationships
 LOAD CSV WITH HEADERS FROM 'file:///data/weapons.csv' AS row
 MATCH
     (w:Weapon {name: row.weapon}),
@@ -225,6 +225,52 @@ MERGE
     (s)-[:OF]->(t)
 MERGE
     (t)-[:CONTAINS]->(s);
+
+
+
+// ****************************************************************************
+// ITEMS LEVELS
+// ****************************************************************************
+
+// Weapon upgrade paths
+LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
+MERGE
+    (p:WeaponUpgradePath {name: row.path})
+
+// Weapon levels
+LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
+MERGE
+    (l:WeaponLevel {name: row.weapon + ' ' + row.level, weapon: row.weapon, level: row.level})
+
+// Connect level progression
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = l2.path
+    AND l2.level = l1.level + 1
+MERGE
+    (l1)-[:NEXT]->(l2)
+
+// Connect level to upgrade path
+MATCH
+    (l:WeaponLevel),
+    (p:WeaponUpgradePath)
+WHERE
+    l.path = p.name
+MERGE
+    (p)-[:HAS]->(l)
+
+// Connect weapon to level
+MATCH
+    (w:Weapon),
+    (l:WeaponLevel)
+WHERE
+    w.name = l.weapon
+MERGE
+    (w)-[:HAS_LEVEL]->(l)
+
 
 
 
