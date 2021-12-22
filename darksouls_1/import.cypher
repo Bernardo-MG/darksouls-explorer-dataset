@@ -244,19 +244,18 @@ MATCH
 WHERE
     p.name = row.path
 MERGE
-    (l:WeaponLevel {name: row.weapon + ' ' + row.level, weapon: row.weapon, level: row.level})
+    (l:WeaponLevel {name: row.weapon + ' ' + row.path + ' ' + row.level, weapon: row.weapon, level: toInteger(row.level), path: row.path})
 MERGE
     (p)-[:HAS]->(l);
 
 // Connect level progression
 MATCH
     (l1:WeaponLevel),
-    (l2:WeaponLevel),
-    (p:WeaponUpgradePath)-[:HAS]->(l1),
-    (p:WeaponUpgradePath)-[:HAS]->(l2)
+    (l2:WeaponLevel)
 WHERE
     l1.weapon = l2.weapon
-    AND toInteger(l2.level) = toInteger(l1.level) + 1
+    AND l1.path = l2.path
+    AND l2.level = l1.level + 1
 MERGE
     (l1)-[:NEXT]->(l2);
 
@@ -268,6 +267,115 @@ WHERE
     w.name = l.weapon
 MERGE
     (w)-[:HAS_LEVEL]->(l);
+
+// Connect upgrade paths
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Fire'
+    AND l2.path = 'Chaos'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Standard'
+    AND l2.path = 'Crystal'
+    AND l1.level = 10
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Standard'
+    AND l2.path = 'Divine'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Magic'
+    AND l2.path = 'Enchanted'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Standard'
+    AND l2.path = 'Fire'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Standard'
+    AND l2.path = 'Lightning'
+    AND l1.level = 10
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Standard'
+    AND l2.path = 'Magic'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Divine'
+    AND l2.path = 'Occult'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
+
+MATCH
+    (l1:WeaponLevel),
+    (l2:WeaponLevel)
+WHERE
+    l1.weapon = l2.weapon
+    AND l1.path = 'Standard'
+    AND l2.path = 'Raw'
+    AND l1.level = 5
+    AND l2.level = 0
+MERGE
+    (l1)-[:NEXT]->(l2);
 
 
 
