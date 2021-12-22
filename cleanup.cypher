@@ -1,1 +1,2 @@
-MATCH(n) DELETE n
+MATCH (n)
+DETACH DELETE n;

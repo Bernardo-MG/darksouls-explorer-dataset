@@ -147,14 +147,14 @@ LOAD CSV WITH HEADERS FROM 'file:///data/healing_items.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MATCH (n)
 WHERE n.name = row.name
-MERGE (n:Healing);
+SET n:Healing;
 
 // Attack items
 LOAD CSV WITH HEADERS FROM 'file:///data/attack_items.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MATCH (n)
 WHERE n.name = row.name
-MERGE (n:Attack);
+SET n:Attack;
 
 // ****************************************************************************
 // ITEMS GROUPS
@@ -235,12 +235,12 @@ MERGE
 // Weapon upgrade paths
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
 MERGE
-    (p:WeaponUpgradePath {name: row.path})
+    (p:WeaponUpgradePath {name: row.path});
 
 // Weapon levels
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
 MERGE
-    (l:WeaponLevel {name: row.weapon + ' ' + row.level, weapon: row.weapon, level: row.level})
+    (l:WeaponLevel {name: row.weapon + ' ' + row.level, weapon: row.weapon, level: row.level});
 
 // Connect level progression
 MATCH
@@ -251,7 +251,7 @@ WHERE
     AND l1.path = l2.path
     AND l2.level = l1.level + 1
 MERGE
-    (l1)-[:NEXT]->(l2)
+    (l1)-[:NEXT]->(l2);
 
 // Connect level to upgrade path
 MATCH
@@ -260,7 +260,7 @@ MATCH
 WHERE
     l.path = p.name
 MERGE
-    (p)-[:HAS]->(l)
+    (p)-[:HAS]->(l);
 
 // Connect weapon to level
 MATCH
@@ -269,7 +269,7 @@ MATCH
 WHERE
     w.name = l.weapon
 MERGE
-    (w)-[:HAS_LEVEL]->(l)
+    (w)-[:HAS_LEVEL]->(l);
 
 
 
