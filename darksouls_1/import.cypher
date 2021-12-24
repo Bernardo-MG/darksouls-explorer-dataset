@@ -245,7 +245,7 @@ WHERE
     p.name = row.path
 MERGE
     (l:WeaponLevel {name: row.weapon + ' ' + row.path + ' ' + row.level, weapon: row.weapon,
-      level: toInteger(row.level), path: row.path}, physicalDamage: row.physical)
+      level: toInteger(row.level), path: row.path, physicalDamage: row.physical})
 MERGE
     (p)-[:HAS]->(l);
 
