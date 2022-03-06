@@ -244,8 +244,17 @@ MATCH
 WHERE
     p.name = row.path
 MERGE
-    (l:WeaponLevel {name: row.weapon + ' ' + row.path + ' ' + row.level, weapon: row.weapon,
-      level: toInteger(row.level), path: row.path, physicalDamage: toInteger(row.physical)})
+    (l:WeaponLevel {
+      name: row.weapon + ' ' + row.path + ' ' + row.level,
+      weapon: row.weapon,
+      level: toInteger(row.level),
+      path: row.path,
+      physicalDamage: toInteger(row.physical),
+      magicDamage: toInteger(row.magic),
+      fireDamage: toInteger(row.fire),
+      lightningDamage: toInteger(row.lightning)
+      }
+    )
 MERGE
     (p)-[:HAS]->(l);
 
