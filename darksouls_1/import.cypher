@@ -235,16 +235,16 @@ MERGE
 // Weapon upgrade paths
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
 MERGE
-    (p:WeaponUpgradePath {name: row.path});
+    (p:UpgradePath {name: row.path});
 
 // Weapon levels
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
 MATCH
-    (p:WeaponUpgradePath)
+    (p:UpgradePath)
 WHERE
     p.name = row.path
 MERGE
-    (l:WeaponLevel {
+    (l:Level {
       name: row.weapon + ' ' + row.path + ' ' + row.level,
       weapon: row.weapon,
       level: toInteger(row.level),
@@ -260,8 +260,8 @@ MERGE
 
 // Connect level progression
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = l2.path
@@ -272,7 +272,7 @@ MERGE
 // Connect weapon to level
 MATCH
     (w:Weapon),
-    (l:WeaponLevel)
+    (l:Level)
 WHERE
     w.name = l.weapon
 MERGE
@@ -280,8 +280,8 @@ MERGE
 
 // Connect upgrade paths
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Fire'
@@ -292,8 +292,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Standard'
@@ -304,8 +304,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Standard'
@@ -316,8 +316,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Magic'
@@ -328,8 +328,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Standard'
@@ -340,8 +340,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Standard'
@@ -352,8 +352,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Standard'
@@ -364,8 +364,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Divine'
@@ -376,8 +376,8 @@ MERGE
     (l1)-[:NEXT]->(l2);
 
 MATCH
-    (l1:WeaponLevel),
-    (l2:WeaponLevel)
+    (l1:Level),
+    (l2:Level)
 WHERE
     l1.weapon = l2.weapon
     AND l1.path = 'Standard'
@@ -386,6 +386,32 @@ WHERE
     AND l2.level = 0
 MERGE
     (l1)-[:NEXT]->(l2);
+
+// Armor levels
+LOAD CSV WITH HEADERS FROM 'file:///data/armor_stats.csv' AS row
+MATCH
+    (a:Armor)
+WHERE
+    a.name = row.armor
+MERGE
+    (l:Level {
+      name: row.armor + ' ' + row.level,
+      armor: row.armor,
+      level: toInteger(row.level),
+      regularProtection: toInteger(row.regular),
+      strikeProtection: toInteger(row.strike),
+      slashProtection: toInteger(row.slash),
+      thrustProtection: toInteger(row.thrust),
+      magicProtection: toInteger(row.magic),
+      fireProtection: toInteger(row.fire),
+      lightningProtection: toInteger(row.lightning),
+      bleedProtection: toInteger(row.bleed),
+      poisonProtection: toInteger(row.poison),
+      curseProtection: toInteger(row.curse)
+      }
+    )
+MERGE
+    (a)-[:HAS]->(l);
 
 
 
