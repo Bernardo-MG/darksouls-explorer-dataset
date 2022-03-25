@@ -252,7 +252,15 @@ MERGE
       physicalDamage: toInteger(row.physical),
       magicDamage: toInteger(row.magic),
       fireDamage: toInteger(row.fire),
-      lightningDamage: toInteger(row.lightning)
+      lightningDamage: toInteger(row.lightning),
+      strengthBonus: row.strength,
+      dexterityBonus: row.dexterity,
+      intelligenceBonus: row.intelligence,
+      faithBonus: row.faith,
+      physicalReduction: row.physical_reduction,
+      magicReduction: row.magic_reduction,
+      fireReduction: row.fire_reduction,
+      lightningReduction: row.lightning_reduction
       }
     )
 MERGE
