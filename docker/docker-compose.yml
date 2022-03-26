@@ -1,7 +1,7 @@
 version: '3'
 services:
     db:
-        image: neo4j:latest
+        image: neo4j:4.1.3
         container_name: darksouls-db
         ports:
             - "7687:7687"
