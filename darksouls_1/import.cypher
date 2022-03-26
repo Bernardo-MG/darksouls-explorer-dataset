@@ -262,7 +262,13 @@ MERGE
       fireReduction: row.fire_reduction,
       lightningReduction: row.lightning_reduction
       }
-    )
+    );
+
+MATCH
+    (p:UpgradePath),
+    (l:level)
+WHERE
+    p.name = l.path
 MERGE
     (p)-[:HAS]->(l);
 
@@ -417,7 +423,13 @@ MERGE
       poisonProtection: toInteger(row.poison),
       curseProtection: toInteger(row.curse)
       }
-    )
+    );
+
+MATCH
+    (a:Armor),
+    (l:level)
+WHERE
+    a.name = l.armor
 MERGE
     (a)-[:HAS]->(l);
 
