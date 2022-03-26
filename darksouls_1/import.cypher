@@ -257,16 +257,16 @@ MERGE
       dexterityBonus: row.dexterity,
       intelligenceBonus: row.intelligence,
       faithBonus: row.faith,
-      physicalReduction: row.physical_reduction,
-      magicReduction: row.magic_reduction,
-      fireReduction: row.fire_reduction,
-      lightningReduction: row.lightning_reduction
+      physicalReduction: toInteger(row.physical_reduction),
+      magicReduction: toInteger(row.magic_reduction),
+      fireReduction: toInteger(row.fire_reduction),
+      lightningReduction: toInteger(row.lightning_reduction)
       }
     );
 
 MATCH
     (p:UpgradePath),
-    (l:level)
+    (l:Level)
 WHERE
     p.name = l.path
 MERGE
@@ -427,7 +427,7 @@ MERGE
 
 MATCH
     (a:Armor),
-    (l:level)
+    (l:Level)
 WHERE
     a.name = l.armor
 MERGE
