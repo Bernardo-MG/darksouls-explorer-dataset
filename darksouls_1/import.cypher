@@ -453,16 +453,16 @@ MERGE
       name: row.armor + ' ' + row.level,
       armor: row.armor,
       level: toInteger(row.level),
-      regularProtection: toInteger(row.regular),
-      strikeProtection: toInteger(row.strike),
-      slashProtection: toInteger(row.slash),
-      thrustProtection: toInteger(row.thrust),
-      magicProtection: toInteger(row.magic),
-      fireProtection: toInteger(row.fire),
-      lightningProtection: toInteger(row.lightning),
-      bleedProtection: toInteger(row.bleed),
-      poisonProtection: toInteger(row.poison),
-      curseProtection: toInteger(row.curse)
+      regularProtection: toFloat(row.regular),
+      strikeProtection: toFloat(row.strike),
+      slashProtection: toFloat(row.slash),
+      thrustProtection: toFloat(row.thrust),
+      magicProtection: toFloat(row.magic),
+      fireProtection: toFloat(row.fire),
+      lightningProtection: toFloat(row.lightning),
+      bleedProtection: toFloat(row.bleed),
+      poisonProtection: toFloat(row.poison),
+      curseProtection: toFloat(row.curse)
       }
     );
 
