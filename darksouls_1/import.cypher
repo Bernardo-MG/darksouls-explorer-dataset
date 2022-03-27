@@ -257,10 +257,10 @@ MERGE
       dexterityBonus: row.dexterity,
       intelligenceBonus: row.intelligence,
       faithBonus: row.faith,
-      physicalReduction: toInteger(row.physical_reduction),
-      magicReduction: toInteger(row.magic_reduction),
-      fireReduction: toInteger(row.fire_reduction),
-      lightningReduction: toInteger(row.lightning_reduction)
+      physicalReduction: toFloat(row.physical_reduction),
+      magicReduction: toFloat(row.magic_reduction),
+      fireReduction: toFloat(row.fire_reduction),
+      lightningReduction: toFloat(row.lightning_reduction)
       }
     );
 
@@ -289,10 +289,10 @@ MERGE
       dexterityBonus: row.dexterity,
       intelligenceBonus: row.intelligence,
       faithBonus: row.faith,
-      physicalReduction: toInteger(row.physical_reduction),
-      magicReduction: toInteger(row.magic_reduction),
-      fireReduction: toInteger(row.fire_reduction),
-      lightningReduction: toInteger(row.lightning_reduction)
+      physicalReduction: toFloat(row.physical_reduction),
+      magicReduction: toFloat(row.magic_reduction),
+      fireReduction: toFloat(row.fire_reduction),
+      lightningReduction: toFloat(row.lightning_reduction)
       }
     );
 
