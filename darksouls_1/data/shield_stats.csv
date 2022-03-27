@@ -1,4 +1,4 @@
-name,type,level,physical,magic,fire,lightning,strength,dexterity,intelligence,faith,physical_reduction,magic_reduction,fire_reduction,lightning_reduction
+name,path,level,physical,magic,fire,lightning,strength,dexterity,intelligence,faith,physical_reduction,magic_reduction,fire_reduction,lightning_reduction
 Buckler,Standard,0,55,0,0,0,D,0,0,0,76,32,65,53
 Buckler,Standard,1,57,0,0,0,D,0,0,0,76,32,65,53
 Buckler,Standard,2,60,0,0,0,D,0,0,0,76,32,65,53
