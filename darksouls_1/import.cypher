@@ -245,8 +245,40 @@ WHERE
     p.name = row.path
 MERGE
     (l:Level {
-      name: row.weapon + ' ' + row.path + ' ' + row.level,
-      weapon: row.weapon,
+      name: row.name + ' ' + row.path + ' ' + row.level,
+      target: row.name,
+      level: toInteger(row.level),
+      path: row.path,
+      physicalDamage: toInteger(row.physical),
+      magicDamage: toInteger(row.magic),
+      fireDamage: toInteger(row.fire),
+      lightningDamage: toInteger(row.lightning),
+      strengthBonus: row.strength,
+      dexterityBonus: row.dexterity,
+      intelligenceBonus: row.intelligence,
+      faithBonus: row.faith,
+      physicalReduction: toInteger(row.physical_reduction),
+      magicReduction: toInteger(row.magic_reduction),
+      fireReduction: toInteger(row.fire_reduction),
+      lightningReduction: toInteger(row.lightning_reduction)
+      }
+    );
+
+// Shield upgrade paths
+LOAD CSV WITH HEADERS FROM 'file:///data/shield_stats.csv' AS row
+MERGE
+    (p:UpgradePath {name: row.path});
+
+// Shield levels
+LOAD CSV WITH HEADERS FROM 'file:///data/shield_stats.csv' AS row
+MATCH
+    (p:UpgradePath)
+WHERE
+    p.name = row.path
+MERGE
+    (l:Level {
+      name: row.name + ' ' + row.path + ' ' + row.level,
+      target: row.name,
       level: toInteger(row.level),
       path: row.path,
       physicalDamage: toInteger(row.physical),
@@ -277,27 +309,18 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = l2.path
     AND l2.level = l1.level + 1
 MERGE
     (l1)-[:NEXT]->(l2);
-
-// Connect weapon to level
-MATCH
-    (w:Weapon),
-    (l:Level)
-WHERE
-    w.name = l.weapon
-MERGE
-    (w)-[:HAS_LEVEL]->(l);
 
 // Connect upgrade paths
 MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Fire'
     AND l2.path = 'Chaos'
     AND l1.level = 5
@@ -309,7 +332,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Standard'
     AND l2.path = 'Crystal'
     AND l1.level = 10
@@ -321,7 +344,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Standard'
     AND l2.path = 'Divine'
     AND l1.level = 5
@@ -333,7 +356,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Magic'
     AND l2.path = 'Enchanted'
     AND l1.level = 5
@@ -345,7 +368,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Standard'
     AND l2.path = 'Fire'
     AND l1.level = 5
@@ -357,7 +380,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Standard'
     AND l2.path = 'Lightning'
     AND l1.level = 10
@@ -369,7 +392,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Standard'
     AND l2.path = 'Magic'
     AND l1.level = 5
@@ -381,7 +404,7 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Divine'
     AND l2.path = 'Occult'
     AND l1.level = 5
@@ -393,13 +416,31 @@ MATCH
     (l1:Level),
     (l2:Level)
 WHERE
-    l1.weapon = l2.weapon
+    l1.target = l2.target
     AND l1.path = 'Standard'
     AND l2.path = 'Raw'
     AND l1.level = 5
     AND l2.level = 0
 MERGE
     (l1)-[:NEXT]->(l2);
+
+// Connect weapon to level
+MATCH
+    (w:Weapon),
+    (l:Level)
+WHERE
+    w.name = l.target
+MERGE
+    (w)-[:HAS_LEVEL]->(l);
+
+// Connect shield to level
+MATCH
+    (s:Shield),
+    (l:Level)
+WHERE
+    s.name = l.target
+MERGE
+    (s)-[:HAS_LEVEL]->(l);
 
 // Armor levels
 LOAD CSV WITH HEADERS FROM 'file:///data/armor_stats.csv' AS row

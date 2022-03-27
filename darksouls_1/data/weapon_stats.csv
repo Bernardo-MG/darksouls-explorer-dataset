@@ -1,4 +1,4 @@
-weapon,path,level,physical,magic,fire,lightning,strength,dexterity,intelligence,faith,physical_reduction,magic_reduction,fire_reduction,lightning_reduction
+name,path,level,physical,magic,fire,lightning,strength,dexterity,intelligence,faith,physical_reduction,magic_reduction,fire_reduction,lightning_reduction
 Battle Axe,Standard,0,95,0,0,0,C,D,0,0,55,10,40,40
 Battle Axe,Standard,1,104,0,0,0,C,D,0,0,55,10,40,40
 Battle Axe,Standard,2,113,0,0,0,C,D,0,0,55,10,40,40
