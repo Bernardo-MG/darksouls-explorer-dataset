@@ -442,6 +442,17 @@ WHERE
 MERGE
     (s)-[:HAS_LEVEL]->(l);
 
+// Relative levels
+MATCH
+   (p:Level)-[:NEXT*]->(l:Level)
+WITH
+   count(p) as previousLevels,
+   l
+SET
+  l.pathLevel = COALESCE(previousLevels, 0)
+RETURN
+   l;
+
 // Armor levels
 LOAD CSV WITH HEADERS FROM 'file:///data/armor_stats.csv' AS row
 MATCH
