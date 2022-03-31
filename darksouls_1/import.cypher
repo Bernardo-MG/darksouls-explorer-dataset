@@ -513,9 +513,7 @@ MATCH
 WHERE
     t.name = e.trader
 MERGE
-    (e)-[:TRADER]->(t)
-RETURN
-    e;
+    (e)-[:TRADER]->(t);
 
 MATCH
     (e:Exchange),
@@ -523,9 +521,7 @@ MATCH
 WHERE
     g.name = e.give
 MERGE
-    (e)-[:GIVE]->(g)
-RETURN
-    e;
+    (e)-[:GIVE]->(g);
 
 MATCH
     (e:Exchange),
@@ -533,18 +529,14 @@ MATCH
 WHERE
     r.name = e.receive
 MERGE
-    (e)-[:RECEIVE]->(r)
-RETURN
-    e;
+    (e)-[:RECEIVE]->(r);
 
 MATCH
     (e:Exchange)
 REMOVE
     e.receive,
     e.give,
-    e.trader
-RETURN
-    e;
+    e.trader;
 
 // Ascensions
 LOAD CSV WITH HEADERS FROM 'file:///data/ascensions.csv' AS row
@@ -644,8 +636,7 @@ MERGE
 // Blacksmiths
 LOAD CSV WITH HEADERS FROM 'file:///data/blacksmiths.csv' AS row
 MATCH (b:Person {name: row.name})
-SET b:Blacksmith
-RETURN b;
+SET b:Blacksmith;
 
 // Organizations
 LOAD CSV WITH HEADERS FROM 'file:///data/organizations.csv' AS row
@@ -687,8 +678,7 @@ MATCH
 WHERE
    c.name = row.name
 SET
-   c:Covenant
-RETURN c;
+   c:Covenant;
 
 // Covenant levels
 LOAD CSV WITH HEADERS FROM 'file:///data/covenant_levels.csv' AS row
@@ -745,8 +735,7 @@ MERGE (n:Enemy {name: row.name});
 // Bosses
 LOAD CSV WITH HEADERS FROM 'file:///data/boss.csv' AS row
 MATCH (c {name: row.name})
-SET c:Boss
-RETURN c;
+SET c:Boss;
 
 // Bosses locations
 LOAD CSV WITH HEADERS FROM 'file:///data/boss.csv' AS row
@@ -789,8 +778,7 @@ MATCH
     (p:Person)
 WHERE
     p.name = row.name
-SET p:God
-RETURN p;
+SET p:God;
 
 // God aspects
 LOAD CSV WITH HEADERS FROM 'file:///data/gods_aspects.csv' AS row
@@ -834,8 +822,7 @@ MATCH
     (p:Person)
 WHERE
     p.name = row.name
-SET p:WhitePhantom
-RETURN p;
+SET p:WhitePhantom;
 
 // Red phantoms
 LOAD CSV WITH HEADERS FROM 'file:///data/red_phantoms.csv' AS row
@@ -843,8 +830,7 @@ MATCH
     (p:Person)
 WHERE
     p.name = row.name
-SET p:RedPhantom
-RETURN p;
+SET p:RedPhantom;
 
 // Phantoms
 MATCH
@@ -852,8 +838,7 @@ MATCH
 WHERE
     p:WhitePhantom
     OR p:RedPhantom
-SET p:Phantom
-RETURN p;
+SET p:Phantom;
 
 // Summons
 LOAD CSV WITH HEADERS FROM 'file:///data/summonables.csv' AS row
@@ -936,16 +921,14 @@ MERGE (o)-[:DROPS]->(i);
 // Unique
 MATCH
     (i:Item)
-SET i.unique = false
-RETURN i;
+SET i.unique = false;
 
 LOAD CSV WITH HEADERS FROM 'file:///data/uniques.csv' AS row
 MATCH
     (i)
 WHERE
     i.name = row.name
-SET i.unique = true
-RETURN i;
+SET i.unique = true;
 
 
 
@@ -975,8 +958,7 @@ MERGE
 
 LOAD CSV WITH HEADERS FROM 'file:///data/cut_content.csv' AS row
 MATCH (c {name: row.name})
-SET c:CutContent
-RETURN c;
+SET c:CutContent;
 
 
 

@@ -5,20 +5,17 @@
 // People
 MATCH
     (a:Person)
-SET a:Actor
-RETURN a;
+SET a:Actor;
 
 // Enemies
 MATCH
     (a:Enemy)
-SET a:Actor
-RETURN a;
+SET a:Actor;
 
 // Actors who sell items become merchants
 MATCH
    (a:Actor)-[:SELLS]->()
-SET a:Merchant
-RETURN a;
+SET a:Merchant;
 
 // ****************************************************************************
 // CLEAN UP
@@ -50,9 +47,7 @@ WITH
 WHERE
    count > 1
 CALL
-   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node
-RETURN
-   nodes;
+   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node;
 
 // Merge people who are also bosses
 MATCH
@@ -66,6 +61,4 @@ WITH
 WHERE
    count > 1
 CALL
-   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node
-RETURN
-   nodes;
+   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node;
