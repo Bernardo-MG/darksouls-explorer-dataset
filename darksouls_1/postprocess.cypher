@@ -47,7 +47,11 @@ WITH
 WHERE
    count > 1
 CALL
-   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node;
+   apoc.refactor.mergeNodes(nodes, {mergeRels: true})
+YIELD
+   node
+RETURN
+   count(*);
 
 // Merge people who are also bosses
 MATCH
@@ -61,4 +65,8 @@ WITH
 WHERE
    count > 1
 CALL
-   apoc.refactor.mergeNodes(nodes, {mergeRels: true}) YIELD node;
+   apoc.refactor.mergeNodes(nodes, {mergeRels: true})
+YIELD
+   node
+RETURN
+   count(*);
