@@ -163,17 +163,17 @@ SET n:Attack;
 // Armor sets
 LOAD CSV WITH HEADERS FROM 'file:///data/armors.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:ArmorSet {name: row.name});
+MERGE (n:ArmorSet {name: row.set});
 
 // Magic schools
 LOAD CSV WITH HEADERS FROM 'file:///data/spells.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:MagicSchool {name: row.name});
+MERGE (n:MagicSchool {name: row.school});
 
 // Shield types
 LOAD CSV WITH HEADERS FROM 'file:///data/shields.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:ShieldType {name: row.name});
+MERGE (n:ShieldType {name: row.type});
 
 // Weapon types
 LOAD CSV WITH HEADERS FROM 'file:///data/weapons.csv' AS row
