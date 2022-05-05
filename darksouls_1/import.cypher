@@ -233,7 +233,7 @@ MERGE
 // ****************************************************************************
 
 // Weapon upgrade paths
-LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/weapon_levels.csv' AS row
 MERGE
     (p:UpgradePath {name: row.path});
 
@@ -460,7 +460,7 @@ SET
   l.pathLevel = COALESCE(previousLevels, 0);
 
 // Armor levels
-LOAD CSV WITH HEADERS FROM 'file:///data/armor_stats.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/armor_levels.csv' AS row
 MATCH
     (a:Armor)
 WHERE
