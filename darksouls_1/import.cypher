@@ -4,7 +4,7 @@
 
 LOAD CSV WITH HEADERS FROM 'file:///data/concepts.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Concept {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Concept {name: row.name});
 
 
 
@@ -80,67 +80,67 @@ MERGE
 // Ammunition
 LOAD CSV WITH HEADERS FROM 'file:///data/ammunition.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Ammunition {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Ammunition {name: row.name});
 
 // Armors
 LOAD CSV WITH HEADERS FROM 'file:///data/armors.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Armor {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Armor {name: row.name});
 
 // Catalysts
 LOAD CSV WITH HEADERS FROM 'file:///data/catalysts.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Catalyst {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Catalyst {name: row.name});
 
 // Embers
 LOAD CSV WITH HEADERS FROM 'file:///data/embers.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Ember {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Ember {name: row.name});
 
 // Key items
 LOAD CSV WITH HEADERS FROM 'file:///data/key_items.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:KeyItem {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:KeyItem {name: row.name});
 
 // Rings
 LOAD CSV WITH HEADERS FROM 'file:///data/rings.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Ring {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Ring {name: row.name});
 
 // Shields
 LOAD CSV WITH HEADERS FROM 'file:///data/shields.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Shield {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Shield {name: row.name});
 
 // Souls
 LOAD CSV WITH HEADERS FROM 'file:///data/souls.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Soul {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Soul {name: row.name});
 
 // Spells
 LOAD CSV WITH HEADERS FROM 'file:///data/spells.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Spell {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Spell {name: row.name});
 
 // Talismans
 LOAD CSV WITH HEADERS FROM 'file:///data/talismans.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Talisman {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Talisman {name: row.name});
 
 // Upgrade materials
 LOAD CSV WITH HEADERS FROM 'file:///data/upgrade_materials.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:UpgradeMaterial {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:UpgradeMaterial {name: row.name});
 
 // Weapons
 LOAD CSV WITH HEADERS FROM 'file:///data/weapons.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item:Weapon {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item:Weapon {name: row.name});
 
 // Miscelaneous items
 LOAD CSV WITH HEADERS FROM 'file:///data/misc_items.csv' AS row
 WITH row WHERE row.name IS NOT NULL
-MERGE (n:Item {name: row.name, description: COALESCE(row.description, '')});
+MERGE (n:Item {name: row.name});
 
 // Healing items
 LOAD CSV WITH HEADERS FROM 'file:///data/healing_items.csv' AS row
@@ -248,19 +248,7 @@ MERGE
       name: row.name + ' ' + row.path + ' ' + row.level,
       target: row.name,
       level: toInteger(row.level),
-      path: row.path,
-      physicalDamage: toInteger(row.physical),
-      magicDamage: toInteger(row.magic),
-      fireDamage: toInteger(row.fire),
-      lightningDamage: toInteger(row.lightning),
-      strengthBonus: row.strength,
-      dexterityBonus: row.dexterity,
-      intelligenceBonus: row.intelligence,
-      faithBonus: row.faith,
-      physicalReduction: toFloat(row.physical_reduction),
-      magicReduction: toFloat(row.magic_reduction),
-      fireReduction: toFloat(row.fire_reduction),
-      lightningReduction: toFloat(row.lightning_reduction)
+      path: row.path
       }
     );
 
@@ -280,19 +268,7 @@ MERGE
       name: row.name + ' ' + row.path + ' ' + row.level,
       target: row.name,
       level: toInteger(row.level),
-      path: row.path,
-      physicalDamage: toInteger(row.physical),
-      magicDamage: toInteger(row.magic),
-      fireDamage: toInteger(row.fire),
-      lightningDamage: toInteger(row.lightning),
-      strengthBonus: row.strength,
-      dexterityBonus: row.dexterity,
-      intelligenceBonus: row.intelligence,
-      faithBonus: row.faith,
-      physicalReduction: toFloat(row.physical_reduction),
-      magicReduction: toFloat(row.magic_reduction),
-      fireReduction: toFloat(row.fire_reduction),
-      lightningReduction: toFloat(row.lightning_reduction)
+      path: row.path
       }
     );
 
@@ -469,17 +445,7 @@ MERGE
     (l:Level {
       name: row.armor + ' ' + row.level,
       armor: row.armor,
-      level: toInteger(row.level),
-      regularProtection: toFloat(row.regular),
-      strikeProtection: toFloat(row.strike),
-      slashProtection: toFloat(row.slash),
-      thrustProtection: toFloat(row.thrust),
-      magicProtection: toFloat(row.magic),
-      fireProtection: toFloat(row.fire),
-      lightningProtection: toFloat(row.lightning),
-      bleedProtection: toFloat(row.bleed),
-      poisonProtection: toFloat(row.poison),
-      curseProtection: toFloat(row.curse)
+      level: toInteger(row.level)
       }
     );
 
