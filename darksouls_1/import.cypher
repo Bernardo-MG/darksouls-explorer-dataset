@@ -235,7 +235,7 @@ MERGE
 // Weapon upgrade paths
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_levels.csv' AS row
 MERGE
-    (p:UpgradePath {name: row.path});
+    (p:UpgradePath {name: row.type});
 
 // Weapon levels
 LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
