@@ -162,7 +162,7 @@ SET n:Attack;
 
 // Armor sets
 LOAD CSV WITH HEADERS FROM 'file:///data/armors.csv' AS row
-WITH row WHERE row.name IS NOT NULL
+WITH row WHERE row.set IS NOT NULL
 MERGE (n:ArmorSet {name: row.set});
 
 // Magic schools
