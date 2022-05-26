@@ -238,21 +238,6 @@ WITH row WHERE row.type IS NOT NULL
 MERGE
     (p:UpgradePath {name: row.type});
 
-// Weapon levels
-LOAD CSV WITH HEADERS FROM 'file:///data/weapon_stats.csv' AS row
-MATCH
-    (p:UpgradePath)
-WHERE
-    p.name = row.path
-MERGE
-    (l:Level {
-      name: row.name + ' ' + row.path + ' ' + row.level,
-      target: row.name,
-      level: toInteger(row.level),
-      path: row.path
-      }
-    );
-
 // Shield upgrade paths
 LOAD CSV WITH HEADERS FROM 'file:///data/shield_stats.csv' AS row
 MERGE
