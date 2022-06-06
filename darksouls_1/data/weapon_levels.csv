@@ -1,4 +1,4 @@
-name,type,level,physical,magic,fire,lightning,strength,dexterity,intelligence,faith,physical_reduction,magic_reduction,fire_reduction,lightning_reduction,critical,stability
+name,path,level,physical,magic,fire,lightning,strength,dexterity,intelligence,faith,physical_reduction,magic_reduction,fire_reduction,lightning_reduction,critical,stability
 Avelyn,Crystal,0,192,0,0,0,0,0,0,0,0,0,0,0,100,0
 Avelyn,Crystal,1,203,0,0,0,0,0,0,0,0,0,0,0,100,0
 Avelyn,Crystal,2,214,0,0,0,0,0,0,0,0,0,0,0,100,0
