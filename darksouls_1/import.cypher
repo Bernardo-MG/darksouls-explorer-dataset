@@ -78,7 +78,7 @@ MERGE
 // ****************************************************************************
 
 // Ammunition
-LOAD CSV WITH HEADERS FROM 'file:///data/ammunition.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///data/ammunitions.csv' AS row
 WITH row WHERE row.name IS NOT NULL
 MERGE (n:Item:Ammunition {name: row.name});
 
