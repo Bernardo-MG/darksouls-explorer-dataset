@@ -434,7 +434,7 @@ WITH
    count(p) as previousLevels,
    l
 SET
-  l.pathLevel = COALESCE(previousLevels, 0);
+  l.pathLevel = COALESCE(previousLevels, l.level);
 
 // Armor levels
 LOAD CSV WITH HEADERS FROM 'file:///data/armor_levels.csv' AS row
